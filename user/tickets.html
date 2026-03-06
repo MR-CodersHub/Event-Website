@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tickets | User Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="bg-slate-950">
+    <nav class="user-topnav">
+        <div class="user-topnav-inner">
+            <a href="../index.html" class="sb-logo" style="border: none; padding: 0;">
+                <span class="sb-logo-mark">L</span>
+                <span class="sb-logo-text">LUMINA</span>
+            </a>
+            <div class="user-nav-links">
+                <a href="index.html" class="user-nav-link">Overview</a>
+                <a href="registrations.html" class="user-nav-link">My Registrations</a>
+                <a href="tickets.html" class="user-nav-link active">Tickets</a>
+                <a href="payments.html" class="user-nav-link">Invoices</a>
+                <a href="profile.html" class="user-nav-link">Profile</a>
+                <a href="support.html" class="user-nav-link">Support</a>
+            </div>
+            <div class="topbar-right">
+                <div class="topbar-avatar">JD</div> 
+                <button onclick="doLogout()" class="btn btn-sm btn-ghost" style="margin-left: 10px;">Logout</button>
+                <button class="topbar-hamburger" onclick="toggleUserMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="user-mobile-menu">
+            <a href="index.html" class="user-mobile-menu-link">Overview</a>
+            <a href="registrations.html" class="user-mobile-menu-link">My Registrations</a>
+            <a href="tickets.html" class="user-mobile-menu-link active">Tickets</a>
+            <a href="payments.html" class="user-mobile-menu-link">Invoices</a>
+            <a href="profile.html" class="user-mobile-menu-link">Profile</a>
+            <a href="support.html" class="user-mobile-menu-link">Support</a>
+            <div class="divider"></div>
+            <a href="#" onclick="doLogout()" class="user-mobile-menu-link" style="color: #f87171;">Logout</a>
+        </div>
+    </nav>
+
+    <main class="user-main">
+        <div class="page-header">
+            <p class="page-eyebrow">Inventory</p>
+            <h1 class="page-title">Identity Passes</h1>
+            <p class="page-desc">Your digital access credentials for upcoming events.</p>
+        </div>
+
+        <div class="grid-2">
+            <!-- Ticket Card -->
+            <div class="card bg-gradient-to-br from-slate-900 to-slate-950 border-primary/20">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div
+                        class="flex-shrink-0 flex items-center justify-center p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <!-- QR Placeholder Grid -->
+                        <div class="qr-placeholder">
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                            <div class="qr-cell bg-white/80"></div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <span class="badge badge-orange mb-3">Diamond Tier Pass</span>
+                        <h4 class="text-xl font-black text-white uppercase tracking-tight mb-1">Cyber Security Summit
+                        </h4>
+                        <p class="text-[10px] text-muted uppercase tracking-widest mb-4">March 15, 2026 • Zurich, CH</p>
+
+                        <div class="space-y-3 mb-4">
+                            <div class="flex justify-between border-b border-white/5 pb-1">
+                                <span class="text-[10px] text-muted font-bold uppercase">Pass Holder</span>
+                                <span class="text-[10px] text-white font-black uppercase">John Doe</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/5 pb-1">
+                                <span class="text-[10px] text-muted font-bold uppercase">Registry ID</span>
+                                <span class="text-[10px] text-white font-black uppercase">LMIN-88120X</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full">Download PDF Pass</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ticket Card 2 -->
+            <div class="card bg-slate-900/50">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div
+                        class="flex-shrink-0 flex items-center justify-center p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <div class="qr-placeholder opacity-60">
+                            <!-- Simple grid -->
+                            <div class="qr-cell bg-white/50"></div>
+                            <div class="qr-cell bg-white/50"></div>
+                            <div class="qr-cell"></div>
+                            <div class="qr-cell"></div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <span class="badge badge-gray mb-3">General Admission</span>
+                        <h4 class="text-xl font-black text-white uppercase tracking-tight mb-1">AI Governance Forum</h4>
+                        <p class="text-[10px] text-muted uppercase tracking-widest mb-6">April 02, 2026 • Virtual</p>
+                        <button class="btn btn-sm btn-ghost w-full">Access Terminal Link</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/dashboard.js"></script>
+    <script>requireUser();</script>
+</body>
+
+</html>

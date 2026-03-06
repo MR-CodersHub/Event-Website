@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings | User Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="bg-slate-950">
+    <nav class="user-topnav">
+        <div class="user-topnav-inner">
+            <a href="../index.html" class="sb-logo" style="border: none; padding: 0;">
+                <span class="sb-logo-mark">L</span>
+                <span class="sb-logo-text">LUMINA</span>
+            </a>
+            <div class="user-nav-links">
+                <a href="index.html" class="user-nav-link">Overview</a>
+                <a href="registrations.html" class="user-nav-link">My Registrations</a>
+                <a href="tickets.html" class="user-nav-link">Tickets</a>
+                <a href="payments.html" class="user-nav-link">Invoices</a>
+                <a href="profile.html" class="user-nav-link active">Profile</a>
+                <a href="support.html" class="user-nav-link">Support</a>
+            </div>
+            <div class="topbar-right">
+                <div class="topbar-avatar">JD</div><button onclick="doLogout()" class="btn btn-sm btn-ghost" style="margin-left: 10px;">Logout</button>
+                <button class="topbar-hamburger" onclick="toggleUserMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="user-mobile-menu">
+            <a href="index.html" class="user-mobile-menu-link">Overview</a>
+            <a href="registrations.html" class="user-mobile-menu-link">My Registrations</a>
+            <a href="tickets.html" class="user-mobile-menu-link">Tickets</a>
+            <a href="payments.html" class="user-mobile-menu-link">Invoices</a>
+            <a href="profile.html" class="user-mobile-menu-link active">Profile</a>
+            <a href="support.html" class="user-mobile-menu-link">Support</a>
+            <div class="divider"></div>
+            <a href="#" onclick="doLogout()" class="user-mobile-menu-link" style="color: #f87171;">Logout</a>
+        </div>
+    </nav>
+
+    <main class="user-main">
+        <div class="page-header">
+            <p class="page-eyebrow">Identity</p>
+            <h1 class="page-title">Personal Settings</h1>
+            <p class="page-desc">Adjust your personal details and system preferences.</p>
+        </div>
+
+        <div class="grid-2">
+            <!-- Basic Info -->
+            <div class="card">
+                <h3 class="card-title">Biographic Data</h3>
+                <form class="space-y-4">
+                    <div class="form-group">
+                        <label class="form-label">Full Legal Name</label>
+                        <input type="text" class="form-input" value="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Registry Email</label>
+                        <input type="email" class="form-input" value="john@example.com" disabled>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label class="form-label">Country</label>
+                            <input type="text" class="form-input" value="United States">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <input type="text" class="form-input" value="+1 555-0192">
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <button type="button" class="btn btn-md btn-primary">Update Profile</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Security Info -->
+            <div class="card">
+                <h3 class="card-title">Security & Access</h3>
+                <form class="space-y-4">
+                    <div class="form-group">
+                        <label class="form-label">Current Access Pin</label>
+                        <input type="password" class="form-input" placeholder="********">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">New Access Pin</label>
+                        <input type="password" class="form-input" placeholder="Leave blank to keep current">
+                    </div>
+                    <div class="pt-4 flex items-center justify-between border-t border-white/5 pt-6">
+                        <p class="text-[10px] text-muted font-bold uppercase">2-Factor Auth: <span
+                                class="text-green-500">Active</span></p>
+                        <button type="button" class="btn btn-sm btn-ghost">Update Security</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/dashboard.js"></script>
+    <script>requireUser();</script>
+</body>
+
+</html>

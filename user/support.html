@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support & Help | User Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="bg-slate-950">
+    <nav class="user-topnav">
+        <div class="user-topnav-inner">
+            <a href="../index.html" class="sb-logo" style="border: none; padding: 0;">
+                <span class="sb-logo-mark">L</span>
+                <span class="sb-logo-text">LUMINA</span>
+            </a>
+            <div class="user-nav-links">
+                <a href="index.html" class="user-nav-link">Overview</a>
+                <a href="registrations.html" class="user-nav-link">My Registrations</a>
+                <a href="tickets.html" class="user-nav-link">Tickets</a>
+                <a href="payments.html" class="user-nav-link">Invoices</a>
+                <a href="profile.html" class="user-nav-link">Profile</a>
+                <a href="support.html" class="user-nav-link active">Support</a>
+            </div>
+            <div class="topbar-right">
+                <div class="topbar-avatar">JD</div>
+                <button onclick="doLogout()" class="btn btn-sm btn-ghost" style="margin-left: 10px;">Logout</button>
+                <button class="topbar-hamburger" onclick="toggleUserMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="user-mobile-menu">
+            <a href="index.html" class="user-mobile-menu-link">Overview</a>
+            <a href="registrations.html" class="user-mobile-menu-link">My Registrations</a>
+            <a href="tickets.html" class="user-mobile-menu-link">Tickets</a>
+            <a href="payments.html" class="user-mobile-menu-link">Invoices</a>
+            <a href="profile.html" class="user-mobile-menu-link">Profile</a>
+            <a href="support.html" class="user-mobile-menu-link active">Support</a>
+            <div class="divider"></div>
+            <a href="#" onclick="doLogout()" class="user-mobile-menu-link" style="color: #f87171;">Logout</a>
+        </div>
+    </nav>
+
+    <main class="user-main">
+        <div class="page-header">
+            <p class="page-eyebrow">Assistance</p>
+            <h1 class="page-title">Help & Logistics</h1>
+            <p class="page-desc">Resolution of technical and operational queries regarding your access.</p>
+        </div>
+
+        <div class="grid-2">
+            <!-- FAQ Section -->
+            <div class="card">
+                <h3 class="card-title">General Intelligence (FAQ)</h3>
+                <div class="space-y-4">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            How do I transfer my diamond pass?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Diamond passes can be transferred via the 'Registrations' management tab up to 48 hours
+                            prior to the event deployment.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            What is the hardware requirement for Virtual VR access?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            You require an Oculus Quest 2 or higher for full sensory immersion. Web broadcast is
+                            available as a fallback.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Can I request a refund if the event is rescheduled?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Yes, full refunds are automated if the primary deployment date shifts more than 7 days from
+                            the original schedule.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="card">
+                <h3 class="card-title">Open Support Ticket</h3>
+                <form class="space-y-4">
+                    <div class="form-group">
+                        <label class="form-label">Query Subject</label>
+                        <select class="form-select">
+                            <option>Payment Issue</option>
+                            <option>Technical Access</option>
+                            <option>Event Logistics</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Message Payload</label>
+                        <textarea class="form-textarea" placeholder="Describe your issue in detail..."></textarea>
+                    </div>
+                    <div class="pt-2">
+                        <button type="button" class="btn btn-md btn-primary">Dispatch Query</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/dashboard.js"></script>
+    <script>requireUser();</script>
+</body>
+
+</html>

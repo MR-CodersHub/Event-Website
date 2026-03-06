@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments & Invoices | LUMINA Admin</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="dash-wrap">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="admin-sb">
+            <a href="../index.html" class="sb-logo">
+                <div class="sb-logo-mark">L</div>
+                <span class="sb-logo-text">LUMINA</span>
+                <span class="sb-badge">Admin</span>
+            </a>
+            <nav class="sb-nav">
+                <div class="sb-section">Main Operations</div>
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    Overview
+                </a>
+                <a href="events.html" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    Manage Events
+                </a>
+                <a href="registrations.html" class="nav-item">
+                    <i class="fas fa-clipboard-check"></i>
+                    Registrations
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    Users
+                </a>
+
+                <div class="sb-section">Asset Management</div>
+                <a href="tickets.html" class="nav-item">
+                    <i class="fas fa-ticket-alt"></i>
+                    Tickets
+                </a>
+                <a href="payments.html" class="nav-item active">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    Payments/Invoices
+                </a>
+
+                <div class="sb-section">Intelligence</div>
+                <a href="reports.html" class="nav-item">
+                    <i class="fas fa-chart-pie"></i>
+                    Reports/Analytics
+                </a>
+                <a href="messages.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    Messages/Support
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    Admin Settings
+                </a>
+
+                <div class="divider"></div>
+                <a href="#" onclick="doLogout()" class="nav-item danger">
+                    <i class="fas fa-power-off"></i>
+                    Logout System
+                </a>
+            </nav>
+        </aside>
+
+        <div id="sb-backdrop" onclick="closeSidebar()"></div>
+
+        <!-- Main Content -->
+        <main class="dash-main">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="topbar-hamburger" onclick="openSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span class="section-label"
+                            style="color: white; font-weight: bold; font-size: 16px;">LUMINA</span>
+                        <span class="topbar-sep">/</span>
+                        <span class="page-label">PAYMENTS</span>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <div class="topbar-actions">
+                        <button class="quick-btn"><i class="fas fa-bell"></i></button>
+                        <a href="settings.html" class="quick-btn"><i class="fas fa-cog"></i></a>
+                    </div>
+                    <div class="topbar-user">
+                        <div class="topbar-avatar">AD</div>
+                        <div class="topbar-user-info">
+                            <p class="name">Main Admin</p>
+                            <p class="role">Control Panel</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <p class="page-eyebrow">Financial Operations</p>
+                    <h1 class="page-title">Ledger Control</h1>
+                    <p class="page-desc">Audit revenue cycles, manage settlements, and monitor global currency flow.</p>
+                </div>
+
+                <!-- Financial Health -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Gross Volume (MTD)</p>
+                        <h2 class="stat-value">$248,300</h2>
+                        <div class="stat-sub up">+12.4% vs prev node</div>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Pending Settlements</p>
+                        <h2 class="stat-value">$14,205</h2>
+                        <div class="stat-sub orange">Audit Required</div>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Net Profit (Projected)</p>
+                        <h2 class="stat-value">$192,000</h2>
+                        <div class="stat-sub up">77% Margin</div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:24px;">
+                    <div class="card-header">
+                        <h3 class="card-title">Real-Time Transaction Stream</h3>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn btn-sm btn-ghost">Download Report</button>
+                            <button class="btn btn-sm btn-primary">Sync Gateway</button>
+                        </div>
+                    </div>
+                    <div class="tbl-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Transaction ID</th>
+                                    <th>Principal Identity</th>
+                                    <th>Asset Value</th>
+                                    <th>Protocol</th>
+                                    <th>Timestamp</th>
+                                    <th>Status</th>
+                                    <th>Audit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-mono text-[10px]">#TX-990-21</td>
+                                    <td class="bold">Sarah Mercer</td>
+                                    <td>$2,500.00</td>
+                                    <td>STRIPE/VISA</td>
+                                    <td>Just Now</td>
+                                    <td><span class="badge badge-green">Cleared</span></td>
+                                    <td><button class="btn btn-xs btn-ghost">Detail</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-mono text-[10px]">#TX-882-14</td>
+                                    <td class="bold">Julian Black</td>
+                                    <td>$850.00</td>
+                                    <td>CRYPTO/USDC</td>
+                                    <td>1 hour ago</td>
+                                    <td><span class="badge badge-yellow">Settling</span></td>
+                                    <td><button class="btn btn-xs btn-ghost">Detail</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+    <script>requireAdmin();</script>
+</body>
+
+</html>

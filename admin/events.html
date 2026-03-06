@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Events | LUMINA Admin</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="dash-wrap">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="admin-sb">
+            <a href="../index.html" class="sb-logo">
+                <div class="sb-logo-mark">L</div>
+                <span class="sb-logo-text">LUMINA</span>
+                <span class="sb-badge">Admin</span>
+            </a>
+            <nav class="sb-nav">
+                <div class="sb-section">Main Operations</div>
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    Overview
+                </a>
+                <a href="events.html" class="nav-item active">
+                    <i class="fas fa-calendar-alt"></i>
+                    Manage Events
+                </a>
+                <a href="registrations.html" class="nav-item">
+                    <i class="fas fa-clipboard-check"></i>
+                    Registrations
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    Users
+                </a>
+
+                <div class="sb-section">Asset Management</div>
+                <a href="tickets.html" class="nav-item">
+                    <i class="fas fa-ticket-alt"></i>
+                    Tickets
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    Payments/Invoices
+                </a>
+
+                <div class="sb-section">Intelligence</div>
+                <a href="reports.html" class="nav-item">
+                    <i class="fas fa-chart-pie"></i>
+                    Reports/Analytics
+                </a>
+                <a href="messages.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    Messages/Support
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    Admin Settings
+                </a>
+
+                <div class="divider"></div>
+                <a href="#" onclick="doLogout()" class="nav-item danger">
+                    <i class="fas fa-power-off"></i>
+                    Logout System
+                </a>
+            </nav>
+        </aside>
+
+        <div id="sb-backdrop" onclick="closeSidebar()"></div>
+
+        <!-- Main Content -->
+        <main class="dash-main">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="topbar-hamburger" onclick="openSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span class="section-label"
+                            style="color: white; font-weight: bold; font-size: 16px;">LUMINA</span>
+                        <span class="topbar-sep">/</span>
+                        <span class="page-label">MANAGE EVENTS</span>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <div class="topbar-actions">
+                        <button class="quick-btn" title="Notifications"><i class="fas fa-bell"></i></button>
+                        <a href="settings.html" class="quick-btn" title="Settings"><i class="fas fa-cog"></i></a>
+                    </div>
+                    <div class="topbar-user">
+                        <div class="topbar-avatar">AD</div>
+                        <div class="topbar-user-info">
+                            <p class="name">Main Admin</p>
+                            <p class="role">Control Panel</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <div>
+                        <p class="page-eyebrow">Inventory Orchestration</p>
+                        <h1 class="page-title">Event Operations</h1>
+                        <p class="page-desc">Create, edit, and manage global event deployments and site inventories.</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="alert('Opening Deployment Interface...')">
+                        <i class="fas fa-plus"></i>
+                        New Deployment
+                    </button>
+                </div>
+
+                <!-- Event Filters -->
+                <div class="card" style="margin-bottom: 24px; padding: 24px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                        <div class="form-group">
+                            <label class="form-label">Search Repository</label>
+                            <input type="text" placeholder="By Name or ID..." class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Operational Status</label>
+                            <select class="form-select">
+                                <option>All Statuses</option>
+                                <option>Live Ops</option>
+                                <option>Drafting</option>
+                                <option>Scheduled</option>
+                                <option>Sold Out</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Regional Node</label>
+                            <select class="form-select">
+                                <option>Global (All)</option>
+                                <option>EMEA</option>
+                                <option>APAC</option>
+                                <option>AMER</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="display: flex; align-items: flex-end;">
+                            <button class="btn btn-primary w-full">Apply Filters</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Live & Scheduled Inventory</h3>
+                        <div class="badge badge-orange">Total 48 Records</div>
+                    </div>
+                    <div class="tbl-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Event Identifier</th>
+                                    <th>Regional Node</th>
+                                    <th>Launch Date</th>
+                                    <th>Saturation</th>
+                                    <th>Status</th>
+                                    <th>Admin Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="bold">
+                                        Cyber Security Symposium 2026
+                                        <p class="text-[9px] text-muted font-mono uppercase mt-1">#EVT-ZUR-001</p>
+                                    </td>
+                                    <td>Zurich Hub</td>
+                                    <td>Mar 15, 2026</td>
+                                    <td>
+                                        <div class="flex items-center gap-2" style="width: 120px;">
+                                            <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                                <div class="h-full bg-primary" style="width: 85%"></div>
+                                            </div>
+                                            <span class="text-[10px] font-bold">85%</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge badge-green">Live Ops</span></td>
+                                    <td>
+                                        <div style="display: flex; gap: 8px;">
+                                            <button class="btn btn-xs btn-ghost" title="Edit Deployment"><i
+                                                    class="fas fa-edit"></i></button>
+                                            <button class="btn btn-xs btn-ghost text-red-400"
+                                                title="Delete Deployment"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bold">
+                                        AI Governance Forum
+                                        <p class="text-[9px] text-muted font-mono uppercase mt-1">#EVT-VRT-042</p>
+                                    </td>
+                                    <td>Virtual Node 01</td>
+                                    <td>Apr 02, 2026</td>
+                                    <td>
+                                        <div class="flex items-center gap-2" style="width: 120px;">
+                                            <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                                <div class="h-full bg-primary" style="width: 24%"></div>
+                                            </div>
+                                            <span class="text-[10px] font-bold">24%</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge badge-yellow">Drafting</span></td>
+                                    <td>
+                                        <div style="display: flex; gap: 8px;">
+                                            <button class="btn btn-xs btn-ghost"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-xs btn-ghost text-red-400"><i
+                                                    class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+    <script>requireAdmin();</script>
+</body>
+
+</html>

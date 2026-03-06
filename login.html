@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LOGIN | LUMINA Registry</title>
+    <meta name="description"
+        content="Access the Lumina Intelligence Registry. Discrete authentication for global partners.">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C4622D',
+                        background: '#FFFFFF',
+                        accent: '#0F172A',
+                        text: '#334155'
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile-menu-optimized.css">
+
+    <!-- Already logged in? Skip this page. -->
+    <script>
+            (function () {
+                var auth = localStorage.getItem('lumina_auth');
+                var role = localStorage.getItem('lumina_role');
+                if (auth) {
+                    window.location.replace(role === 'admin' ? 'admin/index.html' : 'user/index.html');
+                }
+            })();
+    </script>
+
+    <style>
+        /* Compact login card overrides */
+        .login-card-compact {
+            max-width: 440px;
+            width: 100%;
+        }
+
+        /* Role selector styles */
+        .role-selector {
+            display: flex;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .role-btn {
+            flex: 1;
+            padding: 0.55rem 0;
+            font-size: 0.65rem;
+            font-weight: 900;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+        }
+
+        .role-btn.active {
+            background: #C4622D;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(196, 98, 45, 0.3);
+        }
+
+        /* Quick-access links */
+        .quick-access-links {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 0.25rem;
+        }
+
+        .quick-access-link {
+            font-size: 0.6rem;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.35);
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.4rem 0.9rem;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .quick-access-link:hover {
+            color: #C4622D;
+            border-color: rgba(196, 98, 45, 0.35);
+            background: rgba(196, 98, 45, 0.06);
+        }
+
+        /* Error message */
+        #login-error {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #f87171;
+            text-align: center;
+            display: none;
+        }
+
+        /* Compact input fields */
+        .input-compact {
+            padding-top: 0.85rem !important;
+            padding-bottom: 0.85rem !important;
+            padding-left: 1.25rem !important;
+            padding-right: 1.25rem !important;
+            border-radius: 1rem !important;
+            font-size: 0.875rem !important;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- Header — compact for login -->
+    <header class="bg-slate-950 mt-12 text-white relative overflow-hidden text-center">
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="max-w-2xl mx-auto stagger-reveal">
+                <a href="index.html"
+                    class="text-4xl font-black tracking-tight uppercase font-heading flex justify-center items-center gap-2 navbar-brand whitespace-nowrap mb-12">
+                    <span class="bg-primary text-white px-2 py-0.5 rounded-sm flex-shrink-0">L</span>
+                    <span class="brand-text">LUMINA</span>
+                </a>
+                <div class="flex justify-center items-center gap-4 mb-4">
+                    <span class="h-px w-10 bg-primary"></span>
+                    <span class="text-[10px] font-black uppercase tracking-[0.5em] text-primary">Security Layer
+                        01</span>
+                    <span class="h-px w-10 bg-primary"></span>
+                </div>
+                <h1
+                    class="text-4xl sm:text-5xl md:text-6xl font-black text-white font-heading mb-4 leading-[0.9] uppercase tracking-tighter">
+                    Secure <br><span class="italic text-primary">Access.</span>
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="pb-14 container mx-auto px-6 md:px-12 flex justify-center">
+        <div class="login-card-compact fade-in-up">
+            <div
+                class="bg-slate-900/50 backdrop-blur-xl p-6 md:p-8 rounded-[2rem] border border-white/5 relative overflow-hidden shadow-2xl">
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50">
+                </div>
+
+                <form id="login-form" class="space-y-5">
+
+                    <!-- Email -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase tracking-[0.3em] text-primary block">Email
+                            Address</label>
+                        <input type="email" name="email" id="login-email"
+                            class="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 px-5 focus:outline-none focus:border-primary transition-all font-bold text-white placeholder:text-white/20 text-sm"
+                            placeholder="email@example.com" required>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase tracking-[0.3em] text-primary block">Access
+                            Password</label>
+                        <div class="relative">
+                            <input type="password" name="password" id="login-password"
+                                class="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 px-5 pr-12 focus:outline-none focus:border-primary transition-all font-bold text-white placeholder:text-white/20 text-sm"
+                                placeholder="Enter your password" required>
+                            <button type="button" id="toggle-login-pw"
+                                class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors p-1"
+                                aria-label="Toggle password visibility">
+                                <svg id="eye-login-open" class="w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                                <svg id="eye-login-closed" class="w-5 h-5 hidden" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me and Forgot Password Container -->
+                    <div class="flex items-center justify-between px-2">
+                        <label class="flex items-center gap-2 cursor-pointer group">
+                            <input type="checkbox" name="remember"
+                                class="w-4 h-4 rounded border-white/10 bg-white/5 text-primary focus:ring-primary focus:ring-offset-slate-950 transition-all cursor-pointer">
+                            <span
+                                class="text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover:text-primary transition-colors">Remember
+                                Me</span>
+                        </label>
+                        <a href="forgot-password.html"
+                            class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-primary transition-all">Forgot
+                            Password?</a>
+                    </div>
+
+                    <!-- Hidden Role Input (Defaults to user) -->
+                    <input type="hidden" id="selected-role" value="user">
+
+                    <!-- Error Message (Hidden by default) -->
+                    <p id="login-error"
+                        class="hidden text-[10px] font-black uppercase tracking-widest text-red-500 mb-2 mt-2"></p>
+
+                    <!-- Submit -->
+                    <button type="submit" id="login-submit-btn"
+                        class="w-full bg-primary text-white py-4 rounded-full font-black uppercase tracking-[0.3em] text-xs shadow-[0_20px_40px_rgba(196,98,45,0.3)] hover:bg-white hover:text-accent transition-all active:scale-95 leading-none">
+                        Authorize Access →</button>
+
+                    <p class="text-center text-[10px] font-black uppercase tracking-widest text-slate-400">
+                        New Registry Entry? <a href="signup.html" class="text-primary italic hover:underline">Initialize
+                            Access</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div id="global-footer" data-depth="0"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+        (function () {
+            // Clear any cached role values for a clean login state
+            localStorage.removeItem('lumina_auth');
+            localStorage.removeItem('lumina_role');
+
+            // --- Password toggle ---
+            var btn = document.getElementById('toggle-login-pw');
+            var pw = document.getElementById('login-password');
+            var eyeOpen = document.getElementById('eye-login-open');
+            var eyeClosed = document.getElementById('eye-login-closed');
+            if (btn && pw) {
+                btn.addEventListener('click', function () {
+                    var isHidden = pw.type === 'password';
+                    pw.type = isHidden ? 'text' : 'password';
+                    eyeOpen.classList.toggle('hidden', isHidden);
+                    eyeClosed.classList.toggle('hidden', !isHidden);
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>

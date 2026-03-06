@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets & Passes | LUMINA Admin</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="dash-wrap">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="admin-sb">
+            <a href="../index.html" class="sb-logo">
+                <div class="sb-logo-mark">L</div>
+                <span class="sb-logo-text">LUMINA</span>
+                <span class="sb-badge">Admin</span>
+            </a>
+            <nav class="sb-nav">
+                <div class="sb-section">Main Operations</div>
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    Overview
+                </a>
+                <a href="events.html" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    Manage Events
+                </a>
+                <a href="registrations.html" class="nav-item">
+                    <i class="fas fa-clipboard-check"></i>
+                    Registrations
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    Users
+                </a>
+
+                <div class="sb-section">Asset Management</div>
+                <a href="tickets.html" class="nav-item active">
+                    <i class="fas fa-ticket-alt"></i>
+                    Tickets
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    Payments/Invoices
+                </a>
+
+                <div class="sb-section">Intelligence</div>
+                <a href="reports.html" class="nav-item">
+                    <i class="fas fa-chart-pie"></i>
+                    Reports/Analytics
+                </a>
+                <a href="messages.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    Messages/Support
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    Admin Settings
+                </a>
+
+                <div class="divider"></div>
+                <a href="#" onclick="doLogout()" class="nav-item danger">
+                    <i class="fas fa-power-off"></i>
+                    Logout System
+                </a>
+            </nav>
+        </aside>
+
+        <div id="sb-backdrop" onclick="closeSidebar()"></div>
+
+        <!-- Main Content -->
+        <main class="dash-main">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="topbar-hamburger" onclick="openSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span class="section-label"
+                            style="color: white; font-weight: bold; font-size: 16px;">LUMINA</span>
+                        <span class="topbar-sep">/</span>
+                        <span class="page-label">TOKEN HUB</span>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <div class="topbar-actions">
+                        <button class="quick-btn"><i class="fas fa-bell"></i></button>
+                        <a href="settings.html" class="quick-btn"><i class="fas fa-cog"></i></a>
+                    </div>
+                    <div class="topbar-user">
+                        <div class="topbar-avatar">AD</div>
+                        <div class="topbar-user-info">
+                            <p class="name">Main Admin</p>
+                            <p class="role">Control Panel</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <div>
+                        <p class="page-eyebrow">Credential Management</p>
+                        <h1 class="page-title">Token Inventory</h1>
+                        <p class="page-desc">Define access tiers, manage token issuance, and monitor distribution
+                            velocity.</p>
+                    </div>
+                    <button class="btn btn-primary btn-sm">Create Tier</button>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h3 class="card-title mb-6">Tier Configuration</h3>
+                        <div class="space-y-4">
+                            <div
+                                class="flex justify-between items-center p-4 rounded-xl bg-white/5 border-l-4 border-orange-500">
+                                <div>
+                                    <p class="text-xs font-bold text-white">Diamond Principal</p>
+                                    <p class="text-[10px] text-muted uppercase">$2,500.00 • Limited 50</p>
+                                </div>
+                                <button class="btn btn-xs btn-ghost">Edit</button>
+                            </div>
+                            <div
+                                class="flex justify-between items-center p-4 rounded-xl bg-white/5 border-l-4 border-blue-500">
+                                <div>
+                                    <p class="text-xs font-bold text-white">VIP Observation</p>
+                                    <p class="text-[10px] text-muted uppercase">$850.00 • Open 200</p>
+                                </div>
+                                <button class="btn btn-xs btn-ghost">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title mb-6">Token Issuance Stat</h3>
+                        <div style="height: 180px; display: flex; align-items: flex-end; gap: 12px; padding: 20px 0;">
+                            <div
+                                style="flex: 1; background: var(--primary); height: 80%; border-radius: 4px; opacity: 0.8;">
+                            </div>
+                            <div
+                                style="flex: 1; background: var(--primary); height: 60%; border-radius: 4px; opacity: 0.8;">
+                            </div>
+                            <div
+                                style="flex: 1; background: var(--primary); height: 95%; border-radius: 4px; opacity: 0.8;">
+                            </div>
+                            <div
+                                style="flex: 1; background: var(--primary); height: 40%; border-radius: 4px; opacity: 0.8;">
+                            </div>
+                            <div
+                                style="flex: 1; background: var(--primary); height: 75%; border-radius: 4px; opacity: 0.8;">
+                            </div>
+                        </div>
+                        <p class="text-[9px] text-muted text-center font-bold uppercase tracking-widest">Issuance
+                            Velocity (Last 5 Nodes)</p>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:24px;">
+                    <div class="card-header">
+                        <h3 class="card-title">Live Token Registry</h3>
+                    </div>
+                    <div class="tbl-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Token ID</th>
+                                    <th>Carrier Identity</th>
+                                    <th>Security Tier</th>
+                                    <th>Target Hub</th>
+                                    <th>Status</th>
+                                    <th>Admin Control</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-mono text-[10px]">#TK-ZUR-4421</td>
+                                    <td class="bold">Sarah Mercer</td>
+                                    <td><span class="badge badge-orange">Diamond</span></td>
+                                    <td>Zurich Hub</td>
+                                    <td><span class="badge badge-green">Validated</span></td>
+                                    <td><button class="btn btn-xs btn-ghost">Revoke</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-mono text-[10px]">#TK-NYC-1092</td>
+                                    <td class="bold">Marcus Thorne</td>
+                                    <td><span class="badge badge-blue">VIP</span></td>
+                                    <td>NYC Node</td>
+                                    <td><span class="badge badge-green">Validated</span></td>
+                                    <td><button class="btn btn-xs btn-ghost">Revoke</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+    <script>requireAdmin();</script>
+</body>
+
+</html>

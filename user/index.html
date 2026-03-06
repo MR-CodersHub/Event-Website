@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard | LUMINA</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="bg-slate-950">
+    <!-- User Top Nav -->
+    <nav class="user-topnav">
+        <div class="user-topnav-inner">
+            <a href="../index.html" class="sb-logo" style="border: none; padding: 0;">
+                <span class="sb-logo-mark">L</span>
+                <span class="sb-logo-text">LUMINA</span>
+            </a>
+            <div class="user-nav-links">
+                <a href="index.html" class="user-nav-link active">Overview</a>
+                <a href="registrations.html" class="user-nav-link">My Registrations</a>
+                <a href="tickets.html" class="user-nav-link">Tickets</a>
+                <a href="payments.html" class="user-nav-link">Invoices</a>
+                <a href="profile.html" class="user-nav-link">Profile</a>
+                <a href="support.html" class="user-nav-link">Support</a>
+            </div>
+            <div class="topbar-right">
+                <!-- User Dropdown System -->
+                <div class="premium-dropdown" id="user-dropdown-wrap">
+                    <button class="topbar-user" id="user-menu-trigger">
+                        <div class="topbar-avatar">JD</div>
+                        <div class="topbar-user-info">
+                            <p class="name">Sentinel User</p>
+                            <p class="role">User Portal <i class="fas fa-chevron-down"
+                                    style="font-size: 8px; margin-left: 4px; opacity: 0.5;"></i></p>
+                        </div>
+                    </button>
+
+                    <div class="premium-dropdown-menu" id="user-menu-content">
+                        <div class="dropdown-header">
+                            <p class="dropdown-label">Registry Protocol</p>
+                            <p class="dropdown-status">Access: Level 2</p>
+                        </div>
+                        <a href="../login.html" class="premium-dropdown-item">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Login / Sign Up</span>
+                        </a>
+                        <a href="../admin/index.html" class="premium-dropdown-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Admin Dashboard</span>
+                        </a>
+                        <a href="index.html" class="premium-dropdown-item active">
+                            <i class="fas fa-user-circle"></i>
+                            <span>User Dashboard</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" onclick="doLogout()" class="premium-dropdown-item logout">
+                            <i class="fas fa-power-off"></i>
+                            <span>Logout System</span>
+                        </a>
+                    </div>
+                </div>
+
+                <button class="topbar-hamburger" onclick="toggleUserMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="user-mobile-menu">
+            <a href="index.html" class="user-mobile-menu-link active">Overview</a>
+            <a href="registrations.html" class="user-mobile-menu-link">My Registrations</a>
+            <a href="tickets.html" class="user-mobile-menu-link">Tickets</a>
+            <a href="payments.html" class="user-mobile-menu-link">Invoices</a>
+            <a href="profile.html" class="user-mobile-menu-link">Profile</a>
+            <a href="support.html" class="user-mobile-menu-link">Support</a>
+            <div class="divider"></div>
+            <a href="#" onclick="doLogout()" class="user-mobile-menu-link" style="color: #f87171;">Logout</a>
+        </div>
+    </nav>
+
+    <main class="user-main">
+        <div class="page-header">
+            <p class="page-eyebrow">Welcome Back, Sentinel</p>
+            <h1 class="page-title">Personal Command Center</h1>
+            <p class="page-desc">Overview of your registered events and intelligence access.</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <p class="stat-label">Active Passes</p>
+                <h2 class="stat-value">3</h2>
+                <p class="stat-sub primary">2 Confirmed</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-label">Next Deployment</p>
+                <h2 class="stat-value">18d</h2>
+                <p class="stat-sub blue">Zurich Summit</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-label">Loyalty Status</p>
+                <h2 class="stat-value">LVL 4</h2>
+                <p class="stat-sub primary">Silver Tier</p>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <!-- Next Event -->
+            <div class="card">
+                <h3 class="card-title">Priority Deployment</h3>
+                <div class="space-y-4">
+                    <div class="event-card p-6 border-primary/20 bg-primary/5">
+                        <div class="event-date-box bg-primary text-white" style="width: 50px; height: 50px;">
+                            <span class="text-xs font-black">MAR</span>
+                            <span class="text-lg font-black leading-none">15</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-white font-black text-sm uppercase mb-1">Cyber Security Summit 2026</h4>
+                            <p class="text-[10px] text-muted uppercase tracking-widest mb-3">Grand Hall, Zurich • 09:00
+                                AM</p>
+                            <div class="flex gap-2">
+                                <a href="tickets.html" class="btn btn-sm btn-primary">Download Ticket</a>
+                                <a href="registrations.html" class="btn btn-sm btn-ghost">Event Info</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="card">
+                <h3 class="card-title">Recent Updates</h3>
+                <div class="space-y-4">
+                    <div class="flex gap-3 items-start">
+                        <div
+                            class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center text-green-500 flex-shrink-0">
+                            <i class="fas fa-check text-xs"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Payment Confirmed</p>
+                            <p class="text-[10px] text-muted">Invoice #5521 processed successfully.</p>
+                            <p class="text-[9px] text-muted mt-1 uppercase">2 hours ago</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <div
+                            class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500 flex-shrink-0">
+                            <i class="fas fa-info text-xs"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Event Update</p>
+                            <p class="text-[10px] text-muted">A new speaker was added to AI Governance Forum.</p>
+                            <p class="text-[9px] text-muted mt-1 uppercase">Yesterday</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/dashboard.js"></script>
+    <script>requireUser();</script>
+</body>
+
+</html>

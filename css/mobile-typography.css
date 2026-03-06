@@ -1,0 +1,347 @@
+/* ========================================
+   MOBILE TYPOGRAPHY ENHANCEMENTS (360px-768px)
+   Ensures clear, readable, and professionally scaled text
+   ======================================== */
+
+/* Base Mobile Typography (up to 768px) */
+@media (max-width: 768px) {
+
+    /* Body Text - Minimum 16px for comfortable reading as requested */
+    body {
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+        letter-spacing: 0.01em !important;
+    }
+
+    p {
+        font-size: 16px !important;
+        line-height: 1.65 !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Heading Hierarchy - Proportional scaling */
+    h1 {
+        font-size: clamp(2rem, 9vw, 2.75rem) !important;
+        line-height: 1.15 !important;
+        letter-spacing: -0.02em !important;
+        margin-bottom: 2rem !important;
+    }
+
+    h2 {
+        font-size: clamp(1.75rem, 7vw, 2.25rem) !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.01em !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    h3 {
+        font-size: clamp(1.375rem, 6vw, 1.875rem) !important;
+        line-height: 1.3 !important;
+        margin-bottom: 0.875rem !important;
+    }
+
+    h4 {
+        font-size: 1.125rem !important;
+        line-height: 1.4 !important;
+        font-weight: 600 !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    /* Navigation Links */
+    .nav-link-v2,
+    .mobile-nav-link {
+        font-size: 16px !important;
+        letter-spacing: 0.04em !important;
+        font-weight: 500 !important;
+    }
+
+    /* Button Text - Standardized */
+    .nav-btn-v2,
+    .btn,
+    .glow-button,
+    button:not(#mobile-menu-toggle):not(#mobile-account-toggle):not(#mobile-account-close):not(#mobile-menu-close) {
+        font-size: 15px !important;
+        padding: 0.875rem 1.75rem !important;
+        letter-spacing: 0.08em !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+    }
+
+    /* Form Elements - Prevent Zooming on iOS */
+    input,
+    textarea,
+    select,
+    .form-input {
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+        padding: 1rem !important;
+        border-radius: 8px !important;
+    }
+
+    label,
+    .form-label {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        margin-bottom: 0.625rem !important;
+        letter-spacing: 0.05em !important;
+        display: block !important;
+    }
+
+    /* Section Descriptions / Utility Sizes */
+    .text-lg {
+        font-size: 17px !important;
+        line-height: 1.6 !important;
+    }
+
+    .text-base {
+        font-size: 16px !important;
+    }
+
+    .text-sm {
+        font-size: 14px !important;
+    }
+
+    .text-xs {
+        font-size: 13px !important;
+        letter-spacing: 0.05em !important;
+    }
+
+    /* Prevent overly compressed text */
+    .text-\[9px\],
+    .text-\[10px\],
+    .text-\[11px\] {
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+        letter-spacing: 0.1em !important;
+        font-weight: 700 !important;
+    }
+
+    /* Display/Hero Text */
+    .text-display,
+    .text-\[3\.5rem\],
+    .text-\[4rem\],
+    .text-5xl,
+    .text-6xl,
+    .text-7xl,
+    .text-8xl {
+        font-size: clamp(2.25rem, 11vw, 3.5rem) !important;
+        line-height: 1.1 !important;
+        font-weight: 800 !important;
+    }
+
+    /* Reduce excessive letter spacing on mobile */
+    .tracking-\[0\.3em\],
+    .tracking-\[0\.4em\],
+    .tracking-\[0\.5em\],
+    .tracking-\[0\.6em\] {
+        letter-spacing: 0.2em !important;
+    }
+
+    /* Card Content */
+    .card p,
+    .service-card p,
+    .pricing-card p {
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Blog/Article Content */
+    article p {
+        font-size: 17px !important;
+        line-height: 1.75 !important;
+        margin-bottom: 1.75rem !important;
+    }
+
+    /* List Items */
+    li {
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    /* Blockquotes */
+    blockquote {
+        font-size: 18px !important;
+        line-height: 1.6 !important;
+        padding: 1.5rem !important;
+        font-style: italic !important;
+    }
+
+    /* Footer Text */
+    footer p,
+    footer a,
+    footer li {
+        font-size: 15px !important;
+        line-height: 1.65 !important;
+    }
+
+    /* Improve spacing for readability */
+    section {
+        padding-top: 6rem !important;
+        padding-bottom: 6rem !important;
+    }
+
+    header {
+        padding-top: clamp(8rem, 15vh, 12rem) !important;
+        padding-bottom: 4rem !important;
+    }
+
+    .container {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    /* Prevent text from appearing faint / Fix contrast */
+    .text-slate-400,
+    .text-slate-500,
+    .text-gray-400,
+    .text-gray-500 {
+        color: #94a3b8 !important;
+        /* Slate 400 - balanced for dark/light contrast */
+    }
+
+    [data-theme="dark"] .text-slate-400,
+    [data-theme="dark"] .text-slate-500 {
+        color: #cbd5e1 !important;
+        /* Slate 300 for dark mode clarity */
+    }
+
+    /* Ensure proper line height for all text */
+    * {
+        line-height: inherit;
+    }
+}
+
+/* Extra Small Mobile (360px - 480px) Range Specific Refinements */
+@media (max-width: 480px) {
+
+    /* Body Stability */
+    body {
+        font-size: 16px !important;
+        /* Keep 16px even on smallest devices for readability */
+    }
+
+    p {
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Proportional Heading Scaling for Very Small Screens */
+    h1 {
+        font-size: clamp(2rem, 10vw, 2.5rem) !important;
+    }
+
+    h2 {
+        font-size: clamp(1.75rem, 8vw, 2rem) !important;
+    }
+
+    h3 {
+        font-size: clamp(1.25rem, 6vw, 1.5rem) !important;
+    }
+
+    /* Navigation Menu Items */
+    #mobile-menu ul li a {
+        font-size: 2rem !important;
+        /* Slightly smaller than desktop to prevent wrapping */
+        letter-spacing: -0.02em !important;
+    }
+
+    /* Tighter container for very small screens - but still breathable */
+    .container {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+
+    /* Reduce padding to prevent overcrowding while maintaining negative space */
+    .p-6,
+    .p-8,
+    .p-10 {
+        padding: 1.25rem !important;
+    }
+
+    .px-6,
+    .px-8,
+    .px-10 {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+
+    .py-12,
+    .py-16,
+    .py-20,
+    .py-24 {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+
+    /* Button adjustments for tap targets */
+    .btn,
+    .glow-button,
+    button {
+        min-height: 48px !important;
+        /* Mobile standard tap target */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* Prevent awkward text wrapping on long words/titles */
+    .whitespace-nowrap {
+        white-space: normal !important;
+    }
+
+    /* Standardize Gaps - Increased for luxury feel */
+    .gap-8,
+    .gap-10,
+    .gap-12,
+    .gap-16 {
+        gap: 2.5rem !important;
+    }
+
+    .gap-4,
+    .gap-6 {
+        gap: 1.5rem !important;
+    }
+
+    /* Hero Span Scaling */
+    header span.text-xs {
+        font-size: 11px !important;
+        letter-spacing: 0.2em !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* Landscape Mobile Fixes */
+@media (max-height: 480px) and (orientation: landscape) {
+    header {
+        height: auto !important;
+        padding: 6rem 0 !important;
+    }
+
+    h1 {
+        font-size: 2.5rem !important;
+    }
+}
+
+/* Fix for very small text in headers/status bars */
+.text-\[9px\],
+.text-\[10px\] {
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    font-weight: 800 !important;
+}
+
+/* Performance and Rendering */
+@media (max-width: 768px) {
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Smooth image rendering */
+    img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}

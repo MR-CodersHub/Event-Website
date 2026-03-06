@@ -1,0 +1,320 @@
+/**
+ * LUMINA - ACCOUNT INTERACTION FIX
+ * Ensures smooth, consistent user account icon interaction across all pages and screen sizes
+ */
+
+/* ========================================
+   1. Z-INDEX HIERARCHY (Critical Fix)
+   ======================================== */
+
+/* Ensure proper layering - no conflicts */
+nav {
+    z-index: 50 !important;
+}
+
+#mobile-menu {
+    z-index: 60 !important;
+}
+
+#mobile-account-sheet {
+    z-index: 70 !important;
+}
+
+#mobile-menu-backdrop {
+    z-index: 55 !important;
+}
+
+.dropdown-menu {
+    z-index: 100 !important;
+}
+
+/* ========================================
+   2. DESKTOP DROPDOWN - ENHANCED STABILITY
+   ======================================== */
+
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-trigger {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+.profile-trigger:hover {
+    transform: scale(1.05);
+    border-color: var(--primary) !important;
+}
+
+.profile-trigger:active {
+    transform: scale(0.98);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 16px);
+    right: 0;
+    min-width: 240px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 100;
+    will-change: transform, opacity;
+}
+
+.dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+/* Prevent dropdown from being cut off */
+.profile-dropdown {
+    overflow: visible !important;
+}
+
+nav ul {
+    overflow: visible !important;
+}
+
+/* ========================================
+   3. MOBILE ACCOUNT SHEET - SMOOTH ANIMATION
+   ======================================== */
+
+#mobile-account-sheet {
+    /* DISPLAY-BASED STATE CONTROL: completely removes element from
+       hit-test/touch tree when closed — no ghost tap blocking ever. */
+    display: none;
+    position: fixed;
+    inset: 0;
+    will-change: contents;
+}
+
+#mobile-account-sheet.active {
+    display: block;
+}
+
+#mobile-account-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity;
+    /* No pointer-events override needed: parent uses display:none when closed,
+       so backdrop is only ever in the DOM when the sheet is active. */
+}
+
+#mobile-account-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(15, 23, 42);
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+    max-height: 85vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Active states */
+#mobile-account-sheet.active #mobile-account-backdrop {
+    opacity: 1;
+    /* This is naturally clickable — no pointer-events override needed.
+       Backdrop tap-to-close is handled via event delegation in account-interaction.js */
+}
+
+#mobile-account-sheet.active #mobile-account-content {
+    transform: translateY(0);
+}
+
+/* ========================================
+   4. TOUCH OPTIMIZATION FOR MOBILE
+   ======================================== */
+
+@media (max-width: 1023px) {
+
+    #mobile-account-toggle,
+    #mobile-menu-toggle,
+    #mobile-account-close,
+    #mobile-menu-close {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        user-select: none;
+        cursor: pointer;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Improve touch target size */
+    #mobile-account-toggle,
+    #mobile-menu-toggle {
+        position: relative;
+    }
+
+    #mobile-account-toggle::before,
+    #mobile-menu-toggle::before {
+        content: '';
+        position: absolute;
+        inset: -8px;
+    }
+
+    /* Prevent double-tap zoom */
+    .profile-trigger,
+    #mobile-account-toggle,
+    #mobile-menu-toggle {
+        touch-action: manipulation;
+    }
+}
+
+/* ========================================
+   5. PREVENT SCROLL WHEN MODALS OPEN
+   ======================================== */
+
+body.no-scroll {
+    overflow: hidden !important;
+    /* position:fixed removed — caused scroll-jump on mobile */
+}
+
+/* ========================================
+   6. SMOOTH TRANSITIONS & PERFORMANCE
+   ======================================== */
+
+.profile-trigger,
+.dropdown-menu,
+#mobile-account-backdrop,
+#mobile-account-content,
+#mobile-menu {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+
+/* ========================================
+   7. ACCESSIBILITY IMPROVEMENTS
+   ======================================== */
+
+.profile-trigger:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.dropdown-item:focus-visible,
+#mobile-account-content a:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+}
+
+/* ========================================
+   8. CROSS-BROWSER COMPATIBILITY
+   ======================================== */
+
+/* Safari-specific fixes */
+@supports (-webkit-touch-callout: none) {
+    #mobile-account-content {
+        /* Add safe area padding for iPhone notch */
+        padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+}
+
+/* ========================================
+   9. RESPONSIVE BREAKPOINT HANDLING
+   ======================================== */
+
+/* Hide mobile elements on desktop */
+@media (min-width: 1024px) {
+
+    #mobile-account-sheet,
+    #mobile-menu,
+    #mobile-account-toggle,
+    #mobile-menu-toggle {
+        display: none !important;
+    }
+}
+
+/* Hide desktop dropdown on mobile */
+@media (max-width: 1023px) {
+    .profile-dropdown .dropdown-menu {
+        display: none !important;
+    }
+}
+
+/* ========================================
+   10. ANIMATION PERFORMANCE
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .dropdown-menu,
+    #mobile-account-backdrop,
+    #mobile-account-content,
+    .profile-trigger {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* ========================================
+   11. PREVENT FLICKERING
+   ======================================== */
+
+#mobile-account-sheet,
+#mobile-menu {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   12. ENSURE CLICKABLE AREAS
+   ======================================== */
+
+.dropdown-item,
+#mobile-account-content a {
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    pointer-events: auto;
+}
+
+.dropdown-item:hover,
+#mobile-account-content a:hover {
+    background: rgba(196, 98, 45, 0.05);
+    color: var(--primary);
+    padding-left: 2rem;
+}
+
+/* Specific fix for Login / Sign Up line */
+.dropdown-item {
+    line-height: 1;
+}

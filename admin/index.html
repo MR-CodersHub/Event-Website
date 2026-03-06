@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | LUMINA</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="dash-wrap">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="admin-sb">
+            <a href="../index.html" class="sb-logo">
+                <div class="sb-logo-mark">L</div>
+                <span class="sb-logo-text">LUMINA</span>
+                <span class="sb-badge">Admin</span>
+            </a>
+            <nav class="sb-nav">
+                <div class="sb-section">Main Operations</div>
+                <a href="index.html" class="nav-item active">
+                    <i class="fas fa-th-large"></i>
+                    Overview
+                </a>
+                <a href="events.html" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    Manage Events
+                </a>
+                <a href="registrations.html" class="nav-item">
+                    <i class="fas fa-clipboard-check"></i>
+                    Registrations
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    Users
+                </a>
+
+                <div class="sb-section">Asset Management</div>
+                <a href="tickets.html" class="nav-item">
+                    <i class="fas fa-ticket-alt"></i>
+                    Tickets
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    Payments/Invoices
+                </a>
+
+                <div class="sb-section">Intelligence</div>
+                <a href="reports.html" class="nav-item">
+                    <i class="fas fa-chart-pie"></i>
+                    Reports/Analytics
+                </a>
+                <a href="messages.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    Messages/Support
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    Admin Settings
+                </a>
+
+                <div class="divider"></div>
+                <a href="#" onclick="doLogout()" class="nav-item danger">
+                    <i class="fas fa-power-off"></i>
+                    Logout System
+                </a>
+            </nav>
+        </aside>
+
+        <div id="sb-backdrop" onclick="closeSidebar()"></div>
+
+        <!-- Main Content -->
+        <main class="dash-main">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="topbar-hamburger" onclick="openSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span class="section-label"
+                            style="color: white; font-weight: bold; font-size: 16px;">LUMINA</span>
+                        <span class="topbar-sep">/</span>
+                        <span class="page-label">DASHBOARD</span>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <div class="topbar-actions">
+                        <button class="quick-btn" title="Notifications">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <a href="settings.html" class="quick-btn" title="Settings">
+                            <i class="fas fa-cog"></i>
+                        </a>
+                    </div>
+
+                    <!-- User Dropdown System -->
+                    <div class="premium-dropdown" id="user-dropdown-wrap">
+                        <button class="topbar-user" id="user-menu-trigger">
+                            <div class="topbar-avatar">AD</div>
+                            <div class="topbar-user-info">
+                                <p class="name">Main Admin</p>
+                                <p class="role">Control Panel <i class="fas fa-chevron-down"
+                                        style="font-size: 8px; margin-left: 4px; opacity: 0.5;"></i></p>
+                            </div>
+                        </button>
+
+                        <div class="premium-dropdown-menu" id="user-menu-content">
+                            <div class="dropdown-header">
+                                <p class="dropdown-label">Registry Protocol</p>
+                                <p class="dropdown-status">Access: Level 4</p>
+                            </div>
+                            <a href="../login.html" class="premium-dropdown-item">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <span>Login / Sign Up</span>
+                            </a>
+                            <a href="index.html" class="premium-dropdown-item active">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Admin Dashboard</span>
+                            </a>
+                            <a href="../user/index.html" class="premium-dropdown-item">
+                                <i class="fas fa-user-circle"></i>
+                                <span>User Dashboard</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" onclick="doLogout()" class="premium-dropdown-item logout">
+                                <i class="fas fa-power-off"></i>
+                                <span>Logout System</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <div>
+                        <p class="page-eyebrow">System State: Active</p>
+                        <h1 class="page-title">Operational Overview</h1>
+                        <p class="page-desc">High-level telemetry across events, users, and global registration nodes.
+                        </p>
+                    </div>
+                    <button class="btn btn-primary" onclick="openCreateModal()">
+                        <i class="fas fa-plus"></i>
+                        Create New Event
+                    </button>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Total Events</p>
+                        <h2 class="stat-value">24</h2>
+                        <div class="stat-sub up"><i class="fas fa-arrow-up"></i> 3 active now</div>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total Registrations</p>
+                        <h2 class="stat-value">1,418</h2>
+                        <div class="stat-sub up"><i class="fas fa-arrow-up"></i> 82 new today</div>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Active Users</p>
+                        <h2 class="stat-value">842</h2>
+                        <div class="stat-sub primary">12 in session</div>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Revenue This Month</p>
+                        <h2 class="stat-value">$12.4K</h2>
+                        <div class="stat-sub up"><i class="fas fa-dollar-sign"></i> Target: 15K</div>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Pending Approvals</p>
+                        <h2 class="stat-value">18</h2>
+                        <div class="stat-sub orange"><i class="fas fa-clock"></i> Needs Action</div>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Support Tickets</p>
+                        <h2 class="stat-value">5</h2>
+                        <div class="stat-sub primary"><i class="fas fa-envelope"></i> 2 Urgent</div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <!-- Recent Registrations -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Recent Registrations</h3>
+                            <a href="registrations.html" class="btn btn-xs btn-ghost">View All</a>
+                        </div>
+                        <div class="tbl-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Attendee</th>
+                                        <th>Event Name</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="bold">Sarah Mercer</td>
+                                        <td>Cyber Summit</td>
+                                        <td>Feb 25</td>
+                                        <td><span class="badge badge-yellow">Pending</span></td>
+                                        <td>
+                                            <div style="display:flex; gap:4px;">
+                                                <button class="btn btn-xs btn-ghost" title="Approve"><i
+                                                        class="fas fa-check"></i></button>
+                                                <button class="btn btn-xs btn-ghost" title="Reject"><i
+                                                        class="fas fa-times"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bold">Marcus Thorne</td>
+                                        <td>AI Governance</td>
+                                        <td>Feb 24</td>
+                                        <td><span class="badge badge-green">Approved</span></td>
+                                        <td>
+                                            <button class="btn btn-xs btn-ghost" title="View"><i
+                                                    class="fas fa-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bold">Elena Vance</td>
+                                        <td>NYC Disrupt</td>
+                                        <td>Feb 24</td>
+                                        <td><span class="badge badge-green">Approved</span></td>
+                                        <td>
+                                            <button class="btn btn-xs btn-ghost" title="View"><i
+                                                    class="fas fa-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Today's Activity -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Today's Activity</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex gap-4 items-start pb-4 border-b border-white/5">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-500">
+                                    <i class="fas fa-calendar-plus"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-white">Event Launched</p>
+                                    <p class="text-[10px] text-muted">'Global AI Hub' is now accepting registrations.
+                                    </p>
+                                    <p class="text-[9px] text-primary uppercase mt-1">10:42 AM</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start pb-4 border-b border-white/5">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-white">System Verified</p>
+                                    <p class="text-[10px] text-muted">All 12 server nodes are operational at 99.9%
+                                        health.</p>
+                                    <p class="text-[9px] text-primary uppercase mt-1">08:15 AM</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-white">Security Scan</p>
+                                    <p class="text-[10px] text-muted">Scheduled security audit completed. No
+                                        vulnerabilities.</p>
+                                    <p class="text-[9px] text-primary uppercase mt-1">04:00 AM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Events Management -->
+                <div class="card" style="margin-top: 24px;">
+                    <div class="card-header">
+                        <h3 class="card-title">Upcoming Events Management</h3>
+                        <a href="events.html" class="btn btn-sm btn-ghost">View All Events</a>
+                    </div>
+                    <div class="tbl-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Event Name</th>
+                                    <th>Date</th>
+                                    <th>Location</th>
+                                    <th>Seats Sold</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="bold">Cyber Security Symposium 2026</td>
+                                    <td>Mar 15, 2026</td>
+                                    <td>Zurich Hub</td>
+                                    <td>425/500</td>
+                                    <td><span class="badge badge-green">Active</span></td>
+                                    <td>
+                                        <div style="display: flex; gap: 8px;">
+                                            <button class="btn btn-xs btn-ghost" title="Edit"><i
+                                                    class="fas fa-edit"></i></button>
+                                            <button class="btn btn-xs btn-ghost text-red-400" title="Delete"><i
+                                                    class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bold">AI Governance Forum</td>
+                                    <td>Apr 02, 2026</td>
+                                    <td>Virtual Node 01</td>
+                                    <td>120/1000</td>
+                                    <td><span class="badge badge-yellow">Draft</span></td>
+                                    <td>
+                                        <div style="display: flex; gap: 8px;">
+                                            <button class="btn btn-xs btn-ghost" title="Edit"><i
+                                                    class="fas fa-edit"></i></button>
+                                            <button class="btn btn-xs btn-ghost text-red-400" title="Delete"><i
+                                                    class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bold">Tech Disrupt NYC</td>
+                                    <td>Jul 05, 2026</td>
+                                    <td>New York</td>
+                                    <td>890/1000</td>
+                                    <td><span class="badge badge-green">Active</span></td>
+                                    <td>
+                                        <div style="display: flex; gap: 8px;">
+                                            <button class="btn btn-xs btn-ghost" title="Edit"><i
+                                                    class="fas fa-edit"></i></button>
+                                            <button class="btn btn-xs btn-ghost text-red-400" title="Delete"><i
+                                                    class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create Event Modal -->
+    <div class="modal" id="createModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="card-title">Initialise New Event Deployment</h3>
+                <button onclick="closeCreateModal()" class="quick-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="createEventForm" class="space-y-6">
+                    <div class="form-group">
+                        <label class="form-label">Event Designation</label>
+                        <input type="text" placeholder="e.g. Global Tech Summit 2026" class="form-input" required>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Deployment Date</label>
+                            <input type="date" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Assigned Venue/Node</label>
+                            <input type="text" placeholder="Venue or Virtual Hub" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Entity Capacity</label>
+                            <input type="number" placeholder="500" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Asset Price ($)</label>
+                            <input type="number" placeholder="250" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="flex items-center gap-3 cursor-pointer">
+                            <input type="checkbox"
+                                class="w-4 h-4 rounded bg-white/5 border-white/10 text-primary focus:ring-primary/20">
+                            <span class="text-xs font-bold text-white uppercase tracking-widest">Publish to Public
+                                Registry Immediately</span>
+                        </label>
+                    </div>
+                    <div class="flex gap-4 pt-4">
+                        <button type="button" onclick="closeCreateModal()" class="btn btn-ghost flex-1">Abort</button>
+                        <button type="submit" class="btn btn-primary flex-1">Initialise</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+    <script>
+        requireAdmin();
+
+        function openCreateModal() {
+            document.getElementById('createModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCreateModal() {
+            document.getElementById('createModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('createEventForm').onsubmit = function (e) {
+            e.preventDefault();
+            alert('Deployment Sequence Initiated. Event added to registry.');
+            closeCreateModal();
+        }
+    </script>
+</body>
+
+</html>

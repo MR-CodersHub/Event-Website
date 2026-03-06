@@ -1,0 +1,109 @@
+/**
+ * LUMINA - Optimized Mobile Menu UI
+ * Balanced for 100vh, centered layout, no scrolling
+ */
+
+/* Menu Overlay */
+#mobile-menu {
+  background-color: rgba(10, 15, 28, 0.98); /* Custom slate-950 depth */
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden; /* Prevent scrolling within menu */
+}
+
+/* Close Button Positioning */
+#mobile-menu-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 110;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+#mobile-menu-close:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+/* Inner Container */
+.mobile-menu-content {
+  width: 100%;
+  max-width: 440px;
+  height: 100%;
+  padding: 3rem 2rem 2.5rem; /* Reduced vertical padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Menu List */
+.mobile-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Further reduced gaps */
+  margin: 1.5rem 0; /* Reduced margins */
+}
+
+@media (min-height: 700px) {
+  .mobile-menu-list {
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+}
+
+.mobile-menu-link {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem; /* Slightly smaller baseline font */
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  display: inline-block;
+}
+
+@media (min-height: 700px) {
+  .mobile-menu-link {
+    font-size: 1.75rem;
+  }
+}
+
+.mobile-menu-link:hover {
+  color: #C4622D; /* Primary color */
+  transform: scale(1.05);
+}
+
+.mobile-menu-link.active {
+  color: #C4622D;
+  font-style: italic;
+}
+
+/* Footer Section */
+.mobile-menu-footer {
+  margin-top: auto;
+  padding-top: 1.5rem; /* Reduced padding */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.socials-mobile a {
+  transition: all 0.3s ease;
+}
+
+.socials-mobile a:hover {
+  transform: translateY(-3px);
+  color: #C4622D !important;
+}
+
+/* Fix for Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+  #mobile-menu {
+    height: -webkit-fill-available;
+  }
+}

@@ -1,0 +1,519 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Strategic Journal | LUMINA</title>
+    <meta name="description"
+        content="Intelligence briefings and logistical case studies from Lumina's global operations.">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C4622D',
+                        accent: '#0F172A',
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile-typography.css">
+    <link rel="stylesheet" href="css/mobile-menu-optimized.css">
+</head>
+
+<body class="bg-slate-950 text-white font-sans antialiased overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 py-5 border-b border-white/5 bg-slate-900/80 backdrop-blur-xl">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center text-white">
+            <a href="index.html"
+                class="text-xl font-bold tracking-tight uppercase font-heading flex items-center gap-2 navbar-brand whitespace-nowrap">
+                <span class="bg-primary text-white px-2 py-0.5 rounded-sm flex-shrink-0">L</span>
+                <span class="brand-text">LUMINA</span>
+            </a>
+
+            <!-- Mobile Controls (Hamburger + Account) -->
+            <div class="flex items-center gap-3 lg:hidden">
+                <!-- Mobile Account Button -->
+                <button id="mobile-account-toggle" class="text-white p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                </button>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-toggle" class="text-white p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <ul class="hidden lg:flex gap-10 items-center">
+                <li><a href="index.html" class="nav-link-v2">Home</a></li>
+                <li><a href="home-niche/index.html" class="nav-link-v2">Home2</a></li>
+                <li><a href="about.html" class="nav-link-v2">About</a></li>
+                <li><a href="services.html" class="nav-link-v2">Services</a></li>
+                <li><a href="blog.html" class="nav-link-v2 active">Journal</a></li>
+                <li class="relative profile-dropdown">
+                    <button
+                        class="profile-trigger flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/20 hover:border-primary transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="px-6 py-4 border-b border-slate-100 mb-2">
+                            <p class="text-[9px] font-black uppercase tracking-widest text-slate-400">Registry Status
+                            </p>
+                            <p class="text-[10px] font-black uppercase tracking-tight text-accent">Unauthorized</p>
+                        </div>
+                        <a href="login.html" class="dropdown-item">Authorize Access</a>
+                        <a href="signup.html" class="dropdown-item">Initialize Registry</a>
+                    </div>
+                </li>
+                <li><a href="contact.html" class="nav-btn-v2">Start Project</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] lg:hidden" style="display:none" aria-hidden="true">
+        <!-- Close Button -->
+        <button id="mobile-menu-close" class="text-white p-2" aria-label="Close Menu">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <div class="mobile-menu-content">
+            <!-- Logo Section -->
+            <div class="mb-12">
+                <a href="index.html" class="text-2xl font-black tracking-[0.2em] uppercase font-heading text-white">
+                    LUMINA
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="mobile-menu-list">
+                <li><a href="index.html" class="mobile-menu-link">Home</a></li>
+                <li><a href="home-niche/index.html" class="mobile-menu-link">Home2</a></li>
+                <li><a href="about.html" class="mobile-menu-link">About</a></li>
+                <li><a href="services.html" class="mobile-menu-link">Services</a></li>
+                <li><a href="blog.html" class="mobile-menu-link active">Journal</a></li>
+                <li><a href="contact.html" class="mobile-menu-link text-primary italic">Start Project</a></li>
+            </ul>
+
+            <!-- Footer Section -->
+            <div class="mobile-menu-footer">
+                <p class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 mb-2">Registry Protocol</p>
+                <p class="text-sm font-bold text-white/80">ops@lumina.studio</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Account Bottom Sheet -->
+    <div id="mobile-account-sheet" class="fixed inset-0 z-[70] lg:hidden" style="display:none" aria-hidden="true">
+        <div id="mobile-account-backdrop"
+            class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+        <div id="mobile-account-content"
+            class="absolute bottom-0 left-0 right-0 bg-slate-900 rounded-t-[2rem] border-t border-white/10 shadow-2xl translate-y-full transition-transform duration-300 ease-out">
+            <div class="flex justify-center pt-4 pb-2">
+                <div class="w-12 h-1 bg-white/20 rounded-full"></div>
+            </div>
+            <div class="px-6 py-4 border-b border-white/5">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-[9px] font-black uppercase tracking-[0.4em] text-primary">Registry Protocol</p>
+                        <p class="text-sm font-bold text-white mt-1">Account Access</p>
+                    </div>
+                    <button id="mobile-account-close" class="text-white/60 hover:text-white transition-colors p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="px-6 py-6 space-y-3">
+                <a href="login.html"
+                    class="flex items-center justify-between p-4 bg-white/5 hover:bg-white/10 rounded-xl border border-white/5 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Authorize Access</p>
+                            <p class="text-xs text-slate-400">Log in to your account</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="signup.html"
+                    class="flex items-center justify-between p-4 bg-white/5 hover:bg-white/10 rounded-xl border border-white/5 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Initialize Registry</p>
+                            <p class="text-xs text-slate-400">Create new account</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Admin Dashboard (Hidden by default, show when logged in as admin) -->
+            <a href="#"
+                class="flex items-center justify-between p-4 bg-primary/10 hover:bg-primary/20 rounded-xl border border-primary/20 hover:border-primary/40 transition-all group"
+                id="mobile-admin-link" style="display:none">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-white">Admin Dashboard</p>
+                        <p class="text-xs text-primary">System controls</p>
+                    </div>
+                </div>
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+            <div class="h-8"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="pt-40 pb-16 md:pt-48 md:pb-20 bg-slate-950 text-white relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(196,98,45,0.15)_0%,transparent_50%)]">
+            </div>
+        </div>
+        <div class="noise-overlay opacity-20"></div>
+
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="max-w-4xl stagger-reveal mx-auto text-center mt-10">
+                <div class="flex items-center justify-center gap-4 mb-6 md:mb-8">
+                    <span class="h-px w-8 md:w-12 bg-primary"></span>
+                    <span class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.5em] text-primary">Strategic
+                        Archives</span>
+                    <span class="h-px w-8 md:w-12 bg-primary"></span>
+                </div>
+                <h1
+                    class="text-5xl sm:text-7xl md:text-9xl font-black text-white font-heading mb-8 md:mb-10 leading-[0.9] md:leading-[0.85] uppercase tracking-tighter">
+                    Intel <br><span class="italic text-primary">Log</span>
+                </h1>
+
+                <!-- Search Interface -->
+                <div class="relative group mt-10 md:mt-12 max-w-md mx-auto">
+                    <div
+                        class="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-focus-within:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <input type="text" placeholder="Search articles..."
+                        class="relative z-10 w-full bg-slate-900/80 border border-white/10 rounded-full px-8 md:px-10 py-5 md:py-6 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 text-white placeholder:text-slate-600 focus:placeholder:text-slate-500/50 transition-all duration-300 font-bold text-sm md:text-base tracking-wide shadow-lg group-hover:border-white/20">
+                    <svg class="w-5 h-5 absolute right-8 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary group-focus-within:scale-110 group-focus-within:rotate-12 transition-all duration-300 z-20 pointer-events-none"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-12 md:py-24 container mx-auto px-6 md:px-12">
+
+        <!-- Blog Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24 fade-in-up">
+
+            <!-- Article 01 -->
+            <article class="group space-y-10">
+                <div class="aspect-video rounded-[2.5rem] overflow-hidden bg-slate-900 border border-white/5 relative">
+                    <img src="images/hero-command.png"
+                        class="w-full h-full object-cover brightness-75 group-hover:brightness-100 transition-all duration-700 group-hover:scale-105">
+                    <div class="absolute top-8 left-8">
+                        <span
+                            class="bg-primary/90 backdrop-blur-md text-white text-[9px] font-black uppercase tracking-widest px-4 py-2 rounded-sm shadow-xl">Strategy</span>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div
+                        class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-slate-500">
+                        <span>Jan 22, 2026</span>
+                        <span class="text-primary italic">Lumina Intel</span>
+                    </div>
+                    <h3
+                        class="text-3xl font-black font-heading text-white leading-none uppercase tracking-tighter group-hover:text-primary transition-colors">
+                        Zero-Latency Hubs: The <br>Global Hybrid Future.
+                    </h3>
+                    <p class="text-base text-slate-500 leading-relaxed font-medium line-clamp-2 italic">How
+                        decentralized board meetings and ultra-low latency command centers are redefining global
+                        leadership orchestration.</p>
+                    <a href="blog-details.html"
+                        class="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-white group/link">
+                        Access Brief <span class="w-6 h-px bg-primary/40 group-hover/link:w-16 transition-all"></span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article 02 -->
+            <article class="group space-y-10">
+                <div class="aspect-video rounded-[2.5rem] overflow-hidden bg-slate-900 border border-white/5 relative">
+                    <img src="images/hero-wedding.png"
+                        class="w-full h-full object-cover brightness-75 group-hover:brightness-100 transition-all duration-700 group-hover:scale-105">
+                    <div class="absolute top-8 left-8">
+                        <span
+                            class="bg-primary/90 backdrop-blur-md text-white text-[9px] font-black uppercase tracking-widest px-4 py-2 rounded-sm shadow-xl">Prestige</span>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div
+                        class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-slate-500">
+                        <span>Jan 15, 2026</span>
+                        <span class="text-primary italic">Lumina Intel</span>
+                    </div>
+                    <h3
+                        class="text-3xl font-black font-heading text-white leading-none uppercase tracking-tighter group-hover:text-primary transition-colors">
+                        Sensory Direction in <br>High-Value Galas.
+                    </h3>
+                    <p class="text-base text-slate-500 leading-relaxed font-medium line-clamp-2 italic">The
+                        psycho-logistics of spatial design for elite residential celebrations and heritage milestones.
+                    </p>
+                    <a href="blog-details.html"
+                        class="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-white group/link">
+                        Access Brief <span class="w-6 h-px bg-primary/40 group-hover/link:w-16 transition-all"></span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article 03 -->
+            <article class="group space-y-10">
+                <div class="aspect-video rounded-[2.5rem] overflow-hidden bg-slate-900 border border-white/5 relative">
+                    <img src="images/hero-corporate.png"
+                        class="w-full h-full object-cover brightness-75 group-hover:brightness-100 transition-all duration-700 group-hover:scale-105">
+                    <div class="absolute top-8 left-8">
+                        <span
+                            class="bg-primary/90 backdrop-blur-md text-white text-[9px] font-black uppercase tracking-widest px-4 py-2 rounded-sm shadow-xl">Operations</span>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div
+                        class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-slate-500">
+                        <span>Jan 10, 2026</span>
+                        <span class="text-primary italic">Lumina Intel</span>
+                    </div>
+                    <h3
+                        class="text-3xl font-black font-heading text-white leading-none uppercase tracking-tighter group-hover:text-primary transition-colors">
+                        Synchronized Logistics: <br>The NY-Dubai Corridor.
+                    </h3>
+                    <p class="text-base text-slate-500 leading-relaxed font-medium line-clamp-2 italic">Managing
+                        multi-continental gala schedules with millisecond precision and localized operational pods.</p>
+                    <a href="blog-details.html"
+                        class="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-white group/link">
+                        Access Brief <span class="w-6 h-px bg-primary/40 group-hover/link:w-16 transition-all"></span>
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <!-- Registry Subscription Terminal -->
+        <section
+            class="mt-32 md:mt-64 pt-16 relative rounded-[3rem] md:rounded-[4rem] overflow-hidden bg-slate-900 p-8 md:p-24 lg:p-32 text-white shadow-2xl border border-white/5">
+            <div class="absolute inset-0 pointer-events-none opacity-20">
+                <div
+                    class="absolute top-0 right-0 w-full md:w-1/2 h-full bg-[radial-gradient(circle_at_70%_50%,rgba(196,98,45,0.2)_0%,transparent_50%)]">
+                </div>
+            </div>
+
+            <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-24">
+                <div class="max-w-2xl text-center lg:text-left">
+                    <h3
+                        class="text-3xl md:text-5xl font-black text-white font-heading uppercase tracking-tighter mb-6 md:mb-8 leading-tight">
+                        Subscribe
+                        to the <br><span class="text-primary italic">Intelligence Registry.</span></h3>
+                    <p class="text-lg md:text-xl text-slate-400 font-medium leading-relaxed">Join the world’s most
+                        disciplined
+                        organizations. Receive monthly strategic intel delivered via encrypted transmission.</p>
+                </div>
+                <div class="w-full lg:w-auto">
+                    <form class="flex flex-col sm:flex-row w-full gap-4 items-center">
+                        <input type="email" placeholder="Email Address" required
+                            class="bg-slate-950/50 border border-white/10 rounded-full px-8 py-5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 w-full lg:w-96 text-white placeholder:text-slate-500 font-bold transition-all h-16 shadow-inner">
+                        <button type="submit"
+                            class="bg-primary text-white h-16 px-10 rounded-full font-black uppercase tracking-widest text-[10px] border border-transparent hover:bg-white hover:text-accent transition-all shadow-[0_10px_30px_rgba(196,98,45,0.4)] active:scale-95 whitespace-nowrap w-full sm:w-auto flex items-center justify-center gap-2 group">
+                            Initialize Feed <span class="group-hover:translate-x-1 transition-transform">—</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="global-footer" data-depth="0"></div>
+
+    <!-- Mobile Account Bottom Sheet -->
+    <div id="mobile-account-sheet" class="fixed inset-0 z-[70] lg:hidden" style="display:none" aria-hidden="true">
+        <!-- Backdrop -->
+        <div id="mobile-account-backdrop"
+            class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+        <!-- Bottom Sheet -->
+        <div id="mobile-account-content"
+            class="absolute bottom-0 left-0 right-0 bg-slate-900 rounded-t-[2rem] border-t border-white/10 shadow-2xl translate-y-full transition-transform duration-300 ease-out">
+
+            <!-- Handle Bar -->
+            <div class="flex justify-center pt-4 pb-2">
+                <div class="w-12 h-1 bg-white/20 rounded-full"></div>
+            </div>
+
+            <!-- Header -->
+            <div class="px-6 py-4 border-b border-white/5">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-[9px] font-black uppercase tracking-[0.4em] text-primary">Registry Protocol</p>
+                        <p class="text-sm font-bold text-white mt-1">Account Access</p>
+                    </div>
+                    <button id="mobile-account-close" class="text-white/60 hover:text-white transition-colors p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu Items -->
+            <div class="px-6 py-6 space-y-3">
+                <!-- Status Card -->
+                <div class="bg-white/5 rounded-xl p-4 border border-white/5 mb-4">
+                    <p class="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">Current Status</p>
+                    <p class="text-xs font-black uppercase tracking-tight text-white">Unauthorized</p>
+                </div>
+
+                <!-- Log In -->
+                <a href="login.html"
+                    class="flex items-center justify-between p-4 bg-white/5 hover:bg-white/10 rounded-xl border border-white/5 hover:border-primary/30 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Authorize Access</p>
+                            <p class="text-xs text-slate-400">Log in to your account</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+
+                <!-- Sign Up -->
+                <a href="signup.html"
+                    class="flex items-center justify-between p-4 bg-white/5 hover:bg-white/10 rounded-xl border border-white/5 hover:border-primary/30 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Initialize Registry</p>
+                            <p class="text-xs text-slate-400">Create new account</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Safe Area Bottom Padding -->
+
+            <!-- Admin Dashboard (Hidden by default, show when logged in as admin) -->
+            <a href="#"
+                class="flex items-center justify-between p-4 bg-primary/10 hover:bg-primary/20 rounded-xl border border-primary/20 hover:border-primary/40 transition-all group"
+                id="mobile-admin-link" style="display:none">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-white">Admin Dashboard</p>
+                        <p class="text-xs text-primary">System controls</p>
+                    </div>
+                </div>
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+            <div class="h-8"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/footer.js"></script>
+</body>
+
+</html>

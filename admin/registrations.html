@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registry Audit | LUMINA Admin</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="dash-wrap">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="admin-sb">
+            <a href="../index.html" class="sb-logo">
+                <div class="sb-logo-mark">L</div>
+                <span class="sb-logo-text">LUMINA</span>
+                <span class="sb-badge">Admin</span>
+            </a>
+            <nav class="sb-nav">
+                <div class="sb-section">Main Operations</div>
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    Overview
+                </a>
+                <a href="events.html" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    Manage Events
+                </a>
+                <a href="registrations.html" class="nav-item active">
+                    <i class="fas fa-clipboard-check"></i>
+                    Registrations
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    Users
+                </a>
+
+                <div class="sb-section">Asset Management</div>
+                <a href="tickets.html" class="nav-item">
+                    <i class="fas fa-ticket-alt"></i>
+                    Tickets
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    Payments/Invoices
+                </a>
+
+                <div class="sb-section">Intelligence</div>
+                <a href="reports.html" class="nav-item">
+                    <i class="fas fa-chart-pie"></i>
+                    Reports/Analytics
+                </a>
+                <a href="messages.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    Messages/Support
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    Admin Settings
+                </a>
+
+                <div class="divider"></div>
+                <a href="#" onclick="doLogout()" class="nav-item danger">
+                    <i class="fas fa-power-off"></i>
+                    Logout System
+                </a>
+            </nav>
+        </aside>
+
+        <div id="sb-backdrop" onclick="closeSidebar()"></div>
+
+        <!-- Main Content -->
+        <main class="dash-main">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="topbar-hamburger" onclick="openSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span class="section-label"
+                            style="color: white; font-weight: bold; font-size: 16px;">LUMINA</span>
+                        <span class="topbar-sep">/</span>
+                        <span class="page-label">REGISTRATIONS</span>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <div class="topbar-actions">
+                        <button class="quick-btn"><i class="fas fa-bell"></i></button>
+                        <a href="settings.html" class="quick-btn"><i class="fas fa-cog"></i></a>
+                    </div>
+                    <div class="topbar-user">
+                        <div class="topbar-avatar">AD</div>
+                        <div class="topbar-user-info">
+                            <p class="name">Main Admin</p>
+                            <p class="role">Control Panel</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <p class="page-eyebrow">Registry Orchestration</p>
+                    <h1 class="page-title">Registration Audit</h1>
+                    <p class="page-desc">Validate entity entries, manage verification queues, and audit registry logs.
+                    </p>
+                </div>
+
+                <div class="grid-2">
+                    <!-- Verification Queue -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Pending Verification Queue</h3>
+                            <span class="badge badge-yellow">18 Records</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div
+                                class="p-4 rounded-xl bg-white/5 border border-white/5 hover:border-primary/20 transition-all">
+                                <div class="flex justify-between items-center mb-1">
+                                    <p class="text-xs font-bold text-white">Vance, Elena</p>
+                                    <p class="text-[10px] text-muted font-mono">#9921-A</p>
+                                </div>
+                                <p class="text-[10px] text-muted uppercase tracking-widest mb-3">Target: Cyber Summit
+                                    2026 • Diamond</p>
+                                <div class="flex gap-2">
+                                    <button class="btn btn-xs btn-primary flex-1">Approve</button>
+                                    <button class="btn btn-xs btn-ghost flex-1">Reject</button>
+                                </div>
+                            </div>
+                            <div
+                                class="p-4 rounded-xl bg-white/5 border border-white/5 hover:border-primary/20 transition-all">
+                                <div class="flex justify-between items-center mb-1">
+                                    <p class="text-xs font-bold text-white">Black, Julian</p>
+                                    <p class="text-[10px] text-muted font-mono">#8812-C</p>
+                                </div>
+                                <p class="text-[10px] text-muted uppercase tracking-widest mb-3">Target: AI Governance
+                                    Forum • VIP</p>
+                                <div class="flex gap-2">
+                                    <button class="btn btn-xs btn-primary flex-1">Approve</button>
+                                    <button class="btn btn-xs btn-ghost flex-1">Reject</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filter & Search -->
+                    <div class="card">
+                        <h3 class="card-title mb-6">Search Registry</h3>
+                        <form class="space-y-4">
+                            <div class="form-group">
+                                <label class="form-label">Principal Identity</label>
+                                <input type="text" placeholder="Name or Verification Code..." class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Registry Target (Event)</label>
+                                <select class="form-select">
+                                    <option>All Events</option>
+                                    <option>Cyber Summit 2026</option>
+                                    <option>AI Governance Forum</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary w-full">Search Registry</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 24px;">
+                    <div class="card-header">
+                        <h3 class="card-title">Completed Registry Audit</h3>
+                        <button class="btn btn-xs btn-ghost">Export CSV</button>
+                    </div>
+                    <div class="tbl-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Identity Hash</th>
+                                    <th>Registry Target</th>
+                                    <th>Tier Protocol</th>
+                                    <th>Timestamp</th>
+                                    <th>Status</th>
+                                    <th>Control</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="bold">Sarah Mercer</td>
+                                    <td>Cyber Summit</td>
+                                    <td>Diamond</td>
+                                    <td>Just now</td>
+                                    <td><span class="badge badge-green">Verified</span></td>
+                                    <td><button class="btn btn-xs btn-ghost">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="bold">Marcus Thorne</td>
+                                    <td>AI Hub</td>
+                                    <td>VIP</td>
+                                    <td>1 hour ago</td>
+                                    <td><span class="badge badge-green">Verified</span></td>
+                                    <td><button class="btn btn-xs btn-ghost">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+    <script>requireAdmin();</script>
+</body>
+
+</html>

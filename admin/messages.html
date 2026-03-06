@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages & Support | LUMINA Admin</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="dash-wrap">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="admin-sb">
+            <a href="../index.html" class="sb-logo">
+                <div class="sb-logo-mark">L</div>
+                <span class="sb-logo-text">LUMINA</span>
+                <span class="sb-badge">Admin</span>
+            </a>
+            <nav class="sb-nav">
+                <div class="sb-section">Main Operations</div>
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    Overview
+                </a>
+                <a href="events.html" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    Manage Events
+                </a>
+                <a href="registrations.html" class="nav-item">
+                    <i class="fas fa-clipboard-check"></i>
+                    Registrations
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    Users
+                </a>
+
+                <div class="sb-section">Asset Management</div>
+                <a href="tickets.html" class="nav-item">
+                    <i class="fas fa-ticket-alt"></i>
+                    Tickets
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    Payments/Invoices
+                </a>
+
+                <div class="sb-section">Intelligence</div>
+                <a href="reports.html" class="nav-item">
+                    <i class="fas fa-chart-pie"></i>
+                    Reports/Analytics
+                </a>
+                <a href="messages.html" class="nav-item active">
+                    <i class="fas fa-envelope"></i>
+                    Messages/Support
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    Admin Settings
+                </a>
+
+                <div class="divider"></div>
+                <a href="#" onclick="doLogout()" class="nav-item danger">
+                    <i class="fas fa-power-off"></i>
+                    Logout System
+                </a>
+            </nav>
+        </aside>
+
+        <div id="sb-backdrop" onclick="closeSidebar()"></div>
+
+        <!-- Main Content -->
+        <main class="dash-main">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="topbar-hamburger" onclick="openSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span class="section-label"
+                            style="color: white; font-weight: bold; font-size: 16px;">LUMINA</span>
+                        <span class="topbar-sep">/</span>
+                        <span class="page-label">MESSAGES</span>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <div class="topbar-actions">
+                        <button class="quick-btn"><i class="fas fa-bell"></i></button>
+                        <a href="settings.html" class="quick-btn"><i class="fas fa-cog"></i></a>
+                    </div>
+                    <div class="topbar-user">
+                        <div class="topbar-avatar">AD</div>
+                        <div class="topbar-user-info">
+                            <p class="name">Main Admin</p>
+                            <p class="role">Control Panel</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <p class="page-eyebrow">Support Communications</p>
+                    <h1 class="page-title">Entity Inquiries</h1>
+                    <p class="page-desc">Manage support tickets, attendee messages, and system-wide broadcast
+                        communications.</p>
+                </div>
+
+                <div class="grid-2">
+                    <!-- Support Tickets -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Active Tickets</h3>
+                            <span class="badge badge-orange">5 Urgent</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div
+                                class="p-4 rounded-xl bg-white/5 border border-white/5 hover:border-primary/30 transition-all cursor-pointer">
+                                <div class="flex justify-between items-start mb-2">
+                                    <p class="text-xs font-bold text-white">#TK-442: Payment Failure</p>
+                                    <span class="badge badge-red">Urgent</span>
+                                </div>
+                                <p class="text-[10px] text-muted mb-3">User 'Elena Vance' reported a gateway timeout
+                                    during Diamond tier purchase.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[9px] text-primary uppercase font-bold">24 mins ago</span>
+                                    <button class="btn btn-xs btn-ghost">Open Ticket</button>
+                                </div>
+                            </div>
+                            <div
+                                class="p-4 rounded-xl bg-white/5 border border-white/5 hover:border-primary/30 transition-all cursor-pointer">
+                                <div class="flex justify-between items-start mb-2">
+                                    <p class="text-xs font-bold text-white">#TK-440: Badge Verification</p>
+                                    <span class="badge badge-yellow">Medium</span>
+                                </div>
+                                <p class="text-[10px] text-muted mb-3">Question regarding VIP badge collection at Zurich
+                                    Hub.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[9px] text-primary uppercase font-bold">2 hours ago</span>
+                                    <button class="btn btn-xs btn-ghost">Open Ticket</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Broadcaster -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">System Broadcaster</h3>
+                        </div>
+                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Broadcast Transmitted.');">
+                            <div class="form-group">
+                                <label class="form-label">Recipient Group</label>
+                                <select class="form-select">
+                                    <option>All Registered Users</option>
+                                    <option>Diamond Tier Only</option>
+                                    <option>Staff & Marshals</option>
+                                    <option>Zurich Hub Attendees</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Transmission Subject</label>
+                                <input type="text" placeholder="Update regarding event protocols..." class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Protocol Message</label>
+                                <textarea class="form-textarea" rows="4"
+                                    placeholder="Enter your system-wide broadcast message here..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-full">Transmit Broadcast</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+    <script>requireAdmin();</script>
+</body>
+
+</html>

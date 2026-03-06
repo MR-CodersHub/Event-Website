@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Operations | LUMINA SaaS & Agency Solutions</title>
+    <meta name="description"
+        content="Scale your logistics with Lumina's digital-first event management solutions. Designed for SaaS companies and digital agencies.">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C4622D',
+                        background: '#f8fafc',
+                        accent: '#334155',
+                        text: '#1e293b'
+                    },
+                    fontFamily: {
+                        heading: ['Cormorant Garamond', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/mobile-menu-optimized.css">
+</head>
+
+<body class="bg-background text-text font-sans antialiased overflow-x-hidden">
+
+    <!-- OVERLAYS -->
+    <div class="noise-overlay"></div>
+    <div class="texture-overlay"></div>
+    <div class="transition-overlay">
+        <div class="transition-logo">LUMINA</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 py-6 border-b border-white/10 bg-black/20 backdrop-blur-xl">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center text-white">
+            <a href="../../../index.html"
+                class="text-2xl font-bold tracking-[0.3em] uppercase font-heading navbar-brand whitespace-nowrap">
+                <span class="brand-text">LUMINA <span
+                        class="text-primary tracking-normal flex-shrink-0">DIGITAL</span></span></a>
+
+            <ul class="hidden md:flex gap-10 items-center text-[10px] font-bold uppercase tracking-[0.2em]">
+                <li><a href="../../../index.html" class="hover:text-primary">General</a></li>
+                <li><a href="../../../home-niche/index.html" class="text-primary font-bold">Home2</a></li>
+                <li><a href="../../../services.html" class="hover:text-primary transition-colors">Platform</a></li>
+                <li><a href="../../../additional-pages/pricing/index.html"
+                        class="hover:text-primary transition-colors">Pricing</a></li>
+                <li><a href="../../../contact.html"
+                        class="bg-white text-accent px-8 py-3 rounded-sm ml-4 hover:bg-primary hover:text-white transition-all uppercase font-bold">Request
+                        Demo</a>
+                </li>
+            </ul>
+
+            <button class="md:hidden text-white" id="mobile-menu-toggle">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] lg:hidden" style="display:none" aria-hidden="true">
+        <!-- Close Button -->
+        <button id="mobile-menu-close" class="text-white p-2" aria-label="Close Menu">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <div class="mobile-menu-content">
+            <!-- Logo Section -->
+            <div class="mb-12">
+                <a href="../../../index.html"
+                    class="text-2xl font-black tracking-[0.2em] uppercase font-heading text-white">
+                    LUMINA
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="mobile-menu-list">
+                <li><a href="../../../index.html" class="mobile-menu-link">Home</a></li>
+                <li><a href="../../../home-niche/index.html" class="mobile-menu-link">Home2</a></li>
+                <li><a href="../../../about.html" class="mobile-menu-link">About</a></li>
+                <li><a href="../../../services.html" class="mobile-menu-link">Services</a></li>
+                <li><a href="../../../blog.html" class="mobile-menu-link">Journal</a></li>
+                <li><a href="../../../contact.html" class="mobile-menu-link text-primary italic">Start Project</a></li>
+            </ul>
+
+            <!-- Footer Section -->
+            <div class="mobile-menu-footer">
+                <p class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 mb-2">Registry Protocol</p>
+                <p class="text-sm font-bold text-white/80">ops@lumina.studio</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Hero (Conversion Focused) -->
+    <header class="pt-48 pb-32 bg-slate-900 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="images/hero-command.png" class="w-full h-full object-cover opacity-20 hero-zoom-loop">
+            <div class="hero-gradient-overlay"></div>
+        </div>
+
+        <div class="container mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row items-center gap-24">
+            <div class="flex-1 space-y-10">
+                <span
+                    class="inline-block bg-primary/20 text-primary border border-primary/30 px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">v2.0
+                    Beta — Agency Ready</span>
+                <h1 class="text-6xl md:text-8xl font-bold text-white font-heading leading-tight uppercase">Automated
+                    <br><span class="italic text-primary">Event Scale.</span>
+                </h1>
+                <p class="text-xl text-slate-300 font-light leading-relaxed max-w-xl">
+                    For SaaS founders and Digital Agencies: Manage 10 or 100 global events with the same level of
+                    precision as a single flagship summit.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="contact.html"
+                        class="bg-primary text-white px-12 py-5 rounded-sm font-bold uppercase tracking-widest text-[10px] shadow-2xl hover:bg-white hover:text-primary transition-all text-center">Get
+                        Free Audit</a>
+                    <a href="additional-pages/pricing/index.html"
+                        class="border border-white/20 text-white px-12 py-5 rounded-sm font-bold uppercase tracking-widest text-[10px] hover:bg-white hover:text-accent transition-all text-center">View
+                        Scalability plans —</a>
+                </div>
+            </div>
+            <div class="flex-1 bg-white/5 backdrop-blur-2xl border border-white/10 p-12 rounded-sm shadow-2xl">
+                <div class="space-y-8">
+                    <h3 class="text-xl font-bold text-white font-heading uppercase tracking-widest">Platform Stats</h3>
+                    <div class="space-y-6">
+                        <div class="space-y-2">
+                            <div
+                                class="flex justify-between text-[10px] uppercase font-bold tracking-widest text-slate-400">
+                                <span>Automation Integrity</span>
+                                <span>94%</span>
+                            </div>
+                            <div class="w-full bg-white/10 h-1">
+                                <div class="bg-primary h-full w-[94%] transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div
+                                class="flex justify-between text-[10px] uppercase font-bold tracking-widest text-slate-400">
+                                <span>Global Latency</span>
+                                <span>12ms</span>
+                            </div>
+                            <div class="w-full bg-white/10 h-1">
+                                <div class="bg-white h-full w-[15%] transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-32 bg-white">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="space-y-6">
+                    <div class="text-primary text-4xl font-heading font-bold">01.</div>
+                    <h3 class="text-xl font-bold font-heading uppercase tracking-widest text-accent">API-First Logistics
+                    </h3>
+                    <p class="text-sm text-slate-500 font-light">Integrate your CRM or Product dashboard directly with
+                        our event coordination engine.</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="text-primary text-4xl font-heading font-bold">02.</div>
+                    <h3 class="text-xl font-bold font-heading uppercase tracking-widest text-accent">Infinite Scale</h3>
+                    <p class="text-sm text-slate-500 font-light">Whether you're running 5 webinars or 50 global user
+                        conferences, our infra scales with you.</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="text-primary text-4xl font-heading font-bold">03.</div>
+                    <h3 class="text-xl font-bold font-heading uppercase tracking-widest text-accent">Audience
+                        Intelligence</h3>
+                    <p class="text-sm text-slate-500 font-light">Deep data profiling for every attendee to ensure
+                        maximum conversion post-event.</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="text-primary text-4xl font-heading font-bold">04.</div>
+                    <h3 class="text-xl font-bold font-heading uppercase tracking-widest text-accent">White Label</h3>
+                    <p class="text-sm text-slate-500 font-light">Agencies can deliver our world-class coordination under
+                        their own premium brand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="py-32 bg-slate-50 relative">
+        <div class="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+            <div class="relative h-[500px] overflow-hidden rounded-sm shadow-2xl">
+                <img src="images/hero-corporate.png" class="w-full h-full object-cover">
+                <div class="absolute top-12 left-12 bg-white px-8 py-6 shadow-xl border-l-4 border-primary">
+                    <p class="text-xs font-bold uppercase tracking-widest text-slate-400">ROI Delivered</p>
+                    <p class="text-4xl font-bold text-accent font-heading">+412%</p>
+                </div>
+            </div>
+            <div class="space-y-8">
+                <span class="text-[10px] font-bold text-primary uppercase tracking-[0.4em] block">Case Dossier — Zenith
+                    SaaS</span>
+                <h2 class="text-5xl md:text-7xl font-bold font-heading text-accent leading-tight uppercase">Scaling to
+                    <br>Global Markets.
+                </h2>
+                <p class="text-lg text-slate-600 font-light leading-relaxed">
+                    How Zenith SaaS used Lumina to launch 12 market-specific virtual summits in a single quarter,
+                    resulting in a record-breaking pipeline for Q4.
+                </p>
+                <div class="pt-8">
+                    <a href="blog-details.html"
+                        class="text-xs font-bold uppercase tracking-widest text-primary border-b-2 border-primary pb-2">Read
+                        Technical Brief —</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="py-32 bg-primary text-white text-center">
+        <div class="container mx-auto px-6 md:px-12 max-w-4xl">
+            <h2 class="text-5xl md:text-8xl font-bold font-heading mb-12 uppercase italic leading-tight">Ready to
+                Automate <br>Your Logistics?</h2>
+            <p class="text-xl font-light mb-16 opacity-80">Join 40+ leading SaaS organizations scaling their event
+                impact with Lumina Digital.</p>
+            <a href="contact.html"
+                class="bg-white text-primary px-16 py-6 rounded-sm font-bold uppercase tracking-[0.3em] text-xs shadow-2xl hover:bg-accent hover:text-white transition-all inline-block">Initialize
+                Integration —</a>
+        </div>
+    </section>
+
+    <div id="global-footer" data-depth="3"></div>
+
+    <!-- Master Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
+    <script src="../../../js/app.js"></script>
+    <script src="../../../js/animations.js"></script>
+    <script src="../../../js/footer.js"></script>
+</body>
+
+</html>

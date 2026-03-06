@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Invoices | User Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="bg-slate-950">
+    <nav class="user-topnav">
+        <div class="user-topnav-inner">
+            <a href="../index.html" class="sb-logo" style="border: none; padding: 0;">
+                <span class="sb-logo-mark">L</span>
+                <span class="sb-logo-text">LUMINA</span>
+            </a>
+            <div class="user-nav-links">
+                <a href="index.html" class="user-nav-link">Overview</a>
+                <a href="registrations.html" class="user-nav-link">My Registrations</a>
+                <a href="tickets.html" class="user-nav-link">Tickets</a>
+                <a href="payments.html" class="user-nav-link active">Invoices</a>
+                <a href="profile.html" class="user-nav-link">Profile</a>
+                <a href="support.html" class="user-nav-link">Support</a>
+            </div>
+            <div class="topbar-right">
+                <div class="topbar-avatar">JD</div>
+                <button onclick="doLogout()" class="btn btn-sm btn-ghost" style="margin-left: 10px;">Logout</button>
+                <button class="topbar-hamburger" onclick="toggleUserMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="user-mobile-menu">
+            <a href="index.html" class="user-mobile-menu-link">Overview</a>
+            <a href="registrations.html" class="user-mobile-menu-link">My Registrations</a>
+            <a href="tickets.html" class="user-mobile-menu-link">Tickets</a>
+            <a href="payments.html" class="user-mobile-menu-link active">Invoices</a>
+            <a href="profile.html" class="user-mobile-menu-link">Profile</a>
+            <a href="support.html" class="user-mobile-menu-link">Support</a>
+            <div class="divider"></div>
+            <a href="#" onclick="doLogout()" class="user-mobile-menu-link" style="color: #f87171;">Logout</a>
+        </div>
+    </nav>
+
+    <main class="user-main">
+        <div class="page-header">
+            <p class="page-eyebrow">Financials</p>
+            <h1 class="page-title">Personal Invoices</h1>
+            <p class="page-desc">History of your financial transactions and billing details within the registry.</p>
+        </div>
+
+        <div class="card">
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Invoice #</th>
+                            <th>Description</th>
+                            <th>Total Amount</th>
+                            <th>Date</th>
+                            <th>Method</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-xs font-black">#INV-99011</td>
+                            <td>
+                                <p class="bold">Cyber Security Summit Ticket</p>
+                            </td>
+                            <td class="bold">$299.00</td>
+                            <td>Feb 14, 2026</td>
+                            <td class="text-muted">Mastercard **** 4421</td>
+                            <td><span class="badge badge-green">Paid</span></td>
+                            <td><button class="text-primary font-bold text-[10px] uppercase">Download</button></td>
+                        </tr>
+                        <tr>
+                            <td class="text-xs font-black">#INV-99008</td>
+                            <td>
+                                <p class="bold">AI Governance - General Access</p>
+                            </td>
+                            <td class="bold">$899.00</td>
+                            <td>Feb 10, 2026</td>
+                            <td class="text-muted">Mastercard **** 4421</td>
+                            <td><span class="badge badge-green">Paid</span></td>
+                            <td><button class="text-primary font-bold text-[10px] uppercase">Download</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/dashboard.js"></script>
+    <script>requireUser();</script>
+</body>
+
+</html>

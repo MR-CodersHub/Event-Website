@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INITIALIZE ACCESS | LUMINA Registry</title>
+    <meta name="description"
+        content="Join the Lumina Intelligence Registry. Initialize your secure access to global orchestration tools.">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C4622D',
+                        background: '#FFFFFF',
+                        accent: '#0F172A',
+                        text: '#334155'
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile-menu-optimized.css">
+</head>
+
+<body class="bg-slate-950 text-white font-sans antialiased overflow-x-hidden mt-12">
+
+    <!-- Header — compact for signup -->
+    <header class="bg-slate-950 text-white relative overflow-hidden text-center">
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="max-w-2xl mx-auto stagger-reveal">
+                 <a href="index.html"
+                class="text-4xl font-black tracking-tight uppercase font-heading flex justify-center items-center gap-2 navbar-brand whitespace-nowrap mb-12">
+                <span class="bg-primary text-white px-2 py-0.5 rounded-sm flex-shrink-0">L</span>
+                <span class="brand-text">LUMINA</span>
+            </a>
+                <div class="flex justify-center items-center gap-4 mb-4">
+                    <span class="h-px w-10 bg-primary"></span>
+                    <span class="text-[10px] font-black uppercase tracking-[0.5em] text-primary">Registry
+                        Initializer</span>
+                    <span class="h-px w-10 bg-primary"></span>
+                </div>
+                <h1
+                    class="text-4xl sm:text-5xl md:text-6xl font-black text-white font-heading mb-4 leading-[0.9] uppercase tracking-tighter">
+                    Join <br><span class="italic text-primary">Registry.</span>
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="pb-14 container mx-auto px-6 md:px-12 flex justify-center">
+        <div class="w-full max-w-xl fade-in-up">
+            <div
+                class="bg-slate-900/50 backdrop-blur-xl p-6 md:p-8 rounded-[2rem] border border-white/5 relative overflow-hidden shadow-2xl">
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50">
+                </div>
+
+                <form id="signup-form" class="space-y-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label class="text-xs font-black uppercase tracking-[0.3em] text-primary block">Full
+                                Name</label>
+                            <input type="text" name="name"
+                                class="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 px-5 focus:outline-none focus:border-primary transition-all font-bold text-white placeholder:text-white/20 text-sm"
+                                placeholder="Jane Doe" required>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-black uppercase tracking-[0.3em] text-primary block">Company
+                                Name</label>
+                            <input type="text" name="organization"
+                                class="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 px-5 focus:outline-none focus:border-primary transition-all font-bold text-white placeholder:text-white/20 text-sm"
+                                placeholder="Organization Name">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase tracking-[0.3em] text-primary block">Email
+                            Address</label>
+                        <input type="email" name="email"
+                            class="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 px-5 focus:outline-none focus:border-primary transition-all font-bold text-white placeholder:text-white/20 text-sm"
+                            placeholder="email@example.com" required>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label
+                                class="text-xs font-black uppercase tracking-[0.3em] text-primary block">Password</label>
+                            <div class="relative">
+                                <input type="password" name="password" id="signup-password"
+                                    class="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 px-5 pr-12 focus:outline-none focus:border-primary transition-all font-bold text-white placeholder:text-white/20 text-sm"
+                                    placeholder="Create a password" required>
+                                <button type="button" id="toggle-signup-pw"
+                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors p-1"
+                                    aria-label="Toggle password visibility">
+                                    <svg id="eye-signup-open" class="w-5 h-5" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                    <svg id="eye-signup-closed" class="w-5 h-5 hidden" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-black uppercase tracking-[0.3em] text-primary block">Confirm
+                                Password</label>
+                            <div class="relative">
+                                <input type="password" id="signup-confirm"
+                                    class="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 px-5 pr-12 focus:outline-none focus:border-primary transition-all font-bold text-white placeholder:text-white/20 text-sm"
+                                    placeholder="Repeat password" required>
+                                <button type="button" id="toggle-signup-confirm"
+                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors p-1"
+                                    aria-label="Toggle confirm password visibility">
+                                    <svg id="eye-confirm-open" class="w-5 h-5" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                    <svg id="eye-confirm-closed" class="w-5 h-5 hidden" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                        <label class="flex items-start gap-4 cursor-pointer">
+                            <input type="checkbox"
+                                class="mt-1 w-4 h-4 rounded-sm bg-white/5 border-white/10 text-primary focus:ring-primary"
+                                required>
+                            <span class="leading-relaxed">I consent to the <a href="terms.html"
+                                    class="text-primary italic">Protocol Terms</a> and <a href="policy.html"
+                                    class="text-primary italic">Security Policies</a> of the Lumina Intelligence
+                                Registry.</span>
+                        </label>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-primary text-white py-4 rounded-full font-black uppercase tracking-[0.3em] text-xs shadow-[0_20px_40px_rgba(196,98,45,0.3)] hover:bg-white hover:text-accent transition-all active:scale-95 leading-none">
+                        Create Account →</button>
+
+                    <p class="text-center text-[10px] font-black uppercase tracking-widest text-slate-400">
+                        Already Registered? <a href="login.html" class="text-primary italic hover:underline">Authorize
+                            Access</a>
+                    </p>
+
+                    <script>
+                            (function () {
+                                function makeToggle(btnId, pwId, openId, closedId) {
+                                    var btn = document.getElementById(btnId);
+                                    var pw = document.getElementById(pwId);
+                                    var eyeOpen = document.getElementById(openId);
+                                    var eyeClosed = document.getElementById(closedId);
+                                    if (btn && pw) {
+                                        btn.addEventListener('click', function () {
+                                            var isHidden = pw.type === 'password';
+                                            pw.type = isHidden ? 'text' : 'password';
+                                            eyeOpen.classList.toggle('hidden', isHidden);
+                                            eyeClosed.classList.toggle('hidden', !isHidden);
+                                        });
+                                    }
+                                }
+                                makeToggle('toggle-signup-pw', 'signup-password', 'eye-signup-open', 'eye-signup-closed');
+                                makeToggle('toggle-signup-confirm', 'signup-confirm', 'eye-confirm-open', 'eye-confirm-closed');
+                            })();
+                    </script>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div id="global-footer" data-depth="0"></div>
+
+    <!-- Mobile Account Bottom Sheet -->
+    <div id="mobile-account-sheet" class="fixed inset-0 z-[70] lg:hidden" style="display:none" aria-hidden="true">
+        <!-- Backdrop -->
+        <div id="mobile-account-backdrop"
+            class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+        <!-- Bottom Sheet -->
+        <div id="mobile-account-content"
+            class="absolute bottom-0 left-0 right-0 bg-slate-900 rounded-t-[2rem] border-t border-white/10 shadow-2xl translate-y-full transition-transform duration-300 ease-out">
+
+            <!-- Handle Bar -->
+            <div class="flex justify-center pt-4 pb-2">
+                <div class="w-12 h-1 bg-white/20 rounded-full"></div>
+            </div>
+
+            <!-- Header -->
+            <div class="px-6 py-4 border-b border-white/5">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-[9px] font-black uppercase tracking-[0.4em] text-primary">Registry Protocol</p>
+                        <p class="text-sm font-bold text-white mt-1">Account Access</p>
+                    </div>
+                    <button id="mobile-account-close" class="text-white/60 hover:text-white transition-colors p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu Items -->
+            <div class="px-6 py-6 space-y-3">
+                <!-- Status Card -->
+                <div class="bg-white/5 rounded-xl p-4 border border-white/5 mb-4">
+                    <p class="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">Current Status</p>
+                    <p class="text-xs font-black uppercase tracking-tight text-white">Unauthorized</p>
+                </div>
+
+                <!-- Log In -->
+                <a href="login.html"
+                    class="flex items-center justify-between p-4 bg-white/5 hover:bg-white/10 rounded-xl border border-white/5 hover:border-primary/30 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Authorize Access</p>
+                            <p class="text-xs text-slate-400">Log in to your account</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+
+                <!-- Sign Up -->
+                <a href="signup.html"
+                    class="flex items-center justify-between p-4 bg-white/5 hover:bg-white/10 rounded-xl border border-white/5 hover:border-primary/30 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Initialize Registry</p>
+                            <p class="text-xs text-slate-400">Create new account</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Safe Area Bottom Padding -->
+
+            <!-- Admin Dashboard (Hidden by default, show when logged in as admin) -->
+            <a href="#"
+                class="flex items-center justify-between p-4 bg-primary/10 hover:bg-primary/20 rounded-xl border border-primary/20 hover:border-primary/40 transition-all group"
+                id="mobile-admin-link" style="display:none">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-white">Admin Dashboard</p>
+                        <p class="text-xs text-primary">System controls</p>
+                    </div>
+                </div>
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+            <div class="h-8"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Under Orchestration | LUMINA</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C4622D',
+                        accent: '#0F172A',
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-slate-950 text-white font-sans antialiased h-screen flex items-center justify-center overflow-hidden">
+
+    <!-- OVERLAYS -->
+    <div class="noise-overlay opacity-40"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(196,98,45,0.15)_0%,transparent_70%)]"></div>
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] border-[200px] border-white/[0.02] rounded-full">
+        </div>
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] border-[150px] border-white/[0.02] rounded-full">
+        </div>
+    </div>
+
+    <div class="text-center relative z-10 px-6 max-w-5xl stagger-reveal">
+        <div
+            class="inline-flex items-center gap-4 bg-primary/10 text-primary border border-primary/20 px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.5em] mb-12 animate-pulse">
+            <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+            System Update: Infrastructure Verification
+        </div>
+
+        <h1 class="text-7xl md:text-[12rem] font-black font-heading leading-[0.85] tracking-tighter uppercase mb-12">
+            Under <br><span class="italic text-primary">Orchestration</span>
+        </h1>
+
+        <p
+            class="text-slate-400 font-bold max-w-xl mx-auto text-[10px] tracking-[0.4em] leading-relaxed uppercase border-t border-white/10 pt-12">
+            Our engineers are architecting the next generation of logistical excellence. Expected Deployment: Q3 2026.
+        </p>
+
+        <div class="mt-20 flex flex-col md:flex-row justify-center gap-8 fade-in-up">
+            <a href="index.html"
+                class="inline-block bg-white text-accent px-16 py-6 rounded-full font-black uppercase tracking-widest text-[10px] shadow-[0_20px_40px_rgba(255,255,255,0.1)] hover:bg-primary hover:text-white hover:scale-105 transition-all">
+                Return to Command —
+            </a>
+            <a href="contact.html"
+                class="inline-block border border-white/10 bg-white/5 backdrop-blur-xl text-white px-16 py-6 rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-white hover:text-accent transition-all">
+                Inquiry Portal
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

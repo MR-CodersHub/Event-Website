@@ -1,0 +1,71 @@
+/**
+ * LUMINA - "Ready to Collaborate" Section Mobile Refinement
+ * Ensures perfect readability, centering, and proportional spacing on small screens
+ */
+
+/* ========================================
+   MOBILE TYPOGRAPHY OPTIMIZATION
+   ======================================== */
+
+/* ========================================
+   CLEAN MOBILE TYPOGRAPHY - OPTIMIZED
+   ======================================== */
+
+@media (max-width: 767px) {
+
+  /* Section Padding */
+  section:has(.cta-collaborate-section) {
+    padding: 3rem 1rem;
+  }
+
+  .cta-collaborate-section {
+    padding: 2rem 1.25rem;
+    border-radius: 1.5rem;
+    text-align: center;
+  }
+
+  /* Heading */
+  .cta-collaborate-heading {
+    font-size: 1.9rem;   /* 30px */
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-collaborate-highlight {
+    font-size: 2rem;     /* 32px */
+    line-height: 1.15;
+  }
+
+  /* Paragraph */
+  .cta-collaborate-text {
+    font-size: 0.95rem;  /* 15px */
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+  }
+
+  /* Buttons */
+  .cta-collaborate-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .cta-collaborate-buttons a {
+    font-size: 0.95rem;  /* 15px */
+    min-height: 48px;
+    width: 100%;
+    max-width: 280px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Stats Card */
+  .cta-stats-card {
+    margin-top: 3rem;
+    padding: 1.5rem;
+  }
+
+}

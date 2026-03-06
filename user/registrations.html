@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Registrations | User Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="bg-slate-950">
+    <nav class="user-topnav">
+        <div class="user-topnav-inner">
+            <a href="../index.html" class="sb-logo" style="border: none; padding: 0;">
+                <span class="sb-logo-mark">L</span>
+                <span class="sb-logo-text">LUMINA</span>
+            </a>
+            <div class="user-nav-links">
+                <a href="index.html" class="user-nav-link">Overview</a>
+                <a href="registrations.html" class="user-nav-link active">My Registrations</a>
+                <a href="tickets.html" class="user-nav-link">Tickets</a>
+                <a href="payments.html" class="user-nav-link">Invoices</a>
+                <a href="profile.html" class="user-nav-link">Profile</a>
+                <a href="support.html" class="user-nav-link">Support</a>
+            </div>
+            <div class="topbar-right">
+                <div class="topbar-avatar">JD</div> <button onclick="doLogout()" class="btn btn-sm btn-ghost" style="margin-left: 10px;">Logout</button>
+                <button class="topbar-hamburger" onclick="toggleUserMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+               
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="user-mobile-menu">
+            <a href="index.html" class="user-mobile-menu-link">Overview</a>
+            <a href="registrations.html" class="user-mobile-menu-link active">My Registrations</a>
+            <a href="tickets.html" class="user-mobile-menu-link">Tickets</a>
+            <a href="payments.html" class="user-mobile-menu-link">Invoices</a>
+            <a href="profile.html" class="user-mobile-menu-link">Profile</a>
+            <a href="support.html" class="user-mobile-menu-link">Support</a>
+            <div class="divider"></div>
+            <a href="#" onclick="doLogout()" class="user-mobile-menu-link" style="color: #f87171;">Logout</a>
+        </div>
+    </nav>
+
+    <main class="user-main">
+        <div class="page-header">
+            <p class="page-eyebrow">Manifest</p>
+            <h1 class="page-title">Personal Registrations</h1>
+            <p class="page-desc">Management of your confirmed and pending event presence.</p>
+        </div>
+
+        <div class="card">
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Registration ID</th>
+                            <th>Event Name</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-xs text-muted">#REG-LX01</td>
+                            <td>
+                                <p class="bold">Cyber Security Summit 2026</p>
+                            </td>
+                            <td><span class="badge badge-orange">Diamond Tier</span></td>
+                            <td>March 15, 2026</td>
+                            <td><span class="badge badge-green">Confirmed</span></td>
+                            <td>
+                                <a href="tickets.html"
+                                    class="text-primary font-bold text-[10px] uppercase hover:underline">E-Ticket</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-xs text-muted">#REG-LX05</td>
+                            <td>
+                                <p class="bold">Global AI Governance Forum</p>
+                            </td>
+                            <td><span class="badge badge-gray">General Access</span></td>
+                            <td>April 02, 2026</td>
+                            <td><span class="badge badge-green">Confirmed</span></td>
+                            <td>
+                                <a href="tickets.html"
+                                    class="text-primary font-bold text-[10px] uppercase hover:underline">E-Ticket</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-xs text-muted">#REG-LX12</td>
+                            <td>
+                                <p class="bold">Design Expo 2026</p>
+                            </td>
+                            <td><span class="badge badge-blue">VIP Early Bird</span></td>
+                            <td>June 20, 2026</td>
+                            <td><span class="badge badge-yellow">Pending Payment</span></td>
+                            <td>
+                                <a href="payments.html"
+                                    class="text-primary font-bold text-[10px] uppercase hover:underline">Complete
+                                    Payment</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/dashboard.js"></script>
+    <script>requireUser();</script>
+</body>
+
+</html>
