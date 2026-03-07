@@ -1,0 +1,62 @@
+/* 
+   LUMINA - GLOBAL ACCOUNT DROPDOWN STYLES
+   Ensures consistent dropdown appearance across all pages (Home, Dashboards, etc.)
+*/
+
+/* Desktop Dropdown Container */
+.dropdown-menu,
+.premium-dropdown-menu {
+    position: absolute !important;
+    top: calc(100% + 20px) !important;
+    right: 0 !important;
+    width: 220px !important;
+    background: white !important;
+    border-radius: 12px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2) !important;
+    padding: 12px 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(10px) !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    z-index: 10000 !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Show State */
+.dropdown-menu.active,
+.premium-dropdown.open .premium-dropdown-menu,
+.premium-dropdown.open .dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+/* Dropdown Item */
+.dropdown-item,
+.premium-dropdown-item {
+    display: block !important;
+    padding: 12px 24px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+}
+
+.dropdown-item:hover,
+.premium-dropdown-item:hover {
+    background: #f8fafc !important;
+    color: #C4622D !important;
+    padding-left: 32px !important;
+}
+
+/* Mobile Adjustments for consistency */
+#mobile-account-content {
+    background: #0f172a !important;
+    /* Keep mobile dark as requested in earlier designs */
+}

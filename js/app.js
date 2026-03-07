@@ -418,7 +418,8 @@ const LuminaApp = {
             // Transform Auth links to Profile/Logout
             const role = localStorage.getItem('lumina_role');
 
-            // Desktop Dropdown Links
+            /* 
+            // Desktop Dropdown Links - Disabled to maintain 'same three options' consistency
             document.querySelectorAll('.dropdown-item').forEach(link => {
                 const href = link.getAttribute('href') || "";
                 if (href.endsWith('login.html')) {
@@ -431,6 +432,7 @@ const LuminaApp = {
                     link.classList.add('logout-trigger');
                 }
             });
+            */
 
             // Mobile Navigation Transform
             const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
@@ -536,13 +538,13 @@ const LuminaApp = {
                 e.preventDefault();
                 const emailInput = loginForm.querySelector('input[name="email"]');
                 const email = emailInput ? emailInput.value.trim() : 'guest@lumina.studio';
-                
+
                 // Directly authorize and redirect to User Dashboard
                 localStorage.setItem('lumina_auth', email);
                 localStorage.setItem('lumina_role', 'user');
-                
+
                 LuminaApp.toast("Access Authorized. Redirecting to Portal...");
-                
+
                 setTimeout(() => {
                     let prefix = "";
                     const path = window.location.pathname;
